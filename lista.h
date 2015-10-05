@@ -21,17 +21,18 @@ unsigned int tamanho_lista(lista l);
 //      ou NULL, se l é vazia
 
 no primeiro_no(lista l);
+
 //------------------------------------------------------------------------------
 // devolve o sucessor do nó n,
 //      ou NULL, se n for o último nó da lista
 
 no proximo_no(no n);
+
 //------------------------------------------------------------------------------
 // devolve o conteúdo do nó n
 //      ou NULL se n = NULL 
 
 void *conteudo(no n);
-
 //------------------------------------------------------------------------------
 // insere um novo nó na lista l cujo conteúdo é p
 //
