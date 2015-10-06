@@ -4,21 +4,23 @@
 #include "lista.h"
 
 //------------------------------------------------------------------------------
-static Agedge_t **arestas;
+static lista lista_arestas;
 
 static int direcionado,
   n_vertices,
-  n_arestas,
-  n_arestas_visitadas = 0;
+  n_arestas;
 
 //------------------------------------------------------------------------------
 static int busca_aresta(Agedge_t *a){
 
-  for ( int i=0; i < n_arestas_visitadas; ++i)
+  for ( no n=primeiro_no(lista_arestas); n; n=proximo_no(n)) {
     
-    if ( ageqedge(a, arestas[i]) )
+	Agedge_t *aresta = conteudo(n);
+    if ( ageqedge(a, aresta) )
       
       return 1;
+
+  }
 
   return 0;
 }
@@ -29,7 +31,7 @@ static void guarda_arestas(Agraph_t *g, Agnode_t *v) {
 
     if ( ! busca_aresta(a) )
 
-      arestas[n_arestas_visitadas++] = a;
+  	  insere_lista(a, lista_arestas);
 }
 //------------------------------------------------------------------------------
 static void guarda_arcos(Agraph_t *g, Agnode_t *v) {
@@ -38,7 +40,7 @@ static void guarda_arcos(Agraph_t *g, Agnode_t *v) {
 
     if ( ! busca_aresta(a) )
 
-      arestas[n_arestas_visitadas++] = a;
+      insere_lista(a, lista_arestas);
 }
 //------------------------------------------------------------------------------
 static void mostra_arestas(void) {
@@ -48,14 +50,15 @@ static void mostra_arestas(void) {
   
   char rep_aresta = direcionado ? '>' : '-';
   
-  for (int i=0; i < n_arestas; ++i) {
-
-    char *peso = agget(arestas[i], (char *)"peso");
+  for ( no n=primeiro_no(lista_arestas); n; n=proximo_no(n)) {
+  
+    Agedge_t *a= conteudo(n);
+    char *peso = agget(a, (char *)"peso");
     
     printf("    \"%s\" -%c \"%s\"",
-           agnameof(agtail(arestas[i])),
+           agnameof(agtail(a)),
            rep_aresta,
-           agnameof(aghead(arestas[i]))
+           agnameof(aghead(a))
            );
 
     if ( peso && *peso )
@@ -92,7 +95,7 @@ static Agraph_t *mostra_grafo(Agraph_t *g) {
 
   n_arestas = agnedges(g);
   
-  arestas = malloc(((unsigned int)n_arestas)*sizeof(Agedge_t *));
+  lista_arestas = constroi_lista();
 
   printf("strict %sgraph \"%s\" {\n\n",
          agisdirected(g) ? "di" : "",
@@ -105,9 +108,9 @@ static Agraph_t *mostra_grafo(Agraph_t *g) {
 
   mostra_arestas();
 
-  free(arestas);
-
   printf("}\n");
+
+  destroi_lista(lista_arestas, NULL);
 
   return g;
 }

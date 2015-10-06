@@ -18,6 +18,8 @@
 
 typedef struct grafo *grafo;
 
+typedef struct arestas *arestas;
+
 //------------------------------------------------------------------------------
 // devolve o nome do grafo g
 
