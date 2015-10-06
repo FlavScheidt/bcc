@@ -1,8 +1,13 @@
+#include <stdio>
+#include "lista.h"
+#include "grafo.h"
+
 struct grafo 
 {
 	char * nome;
 	lista * listaVertices;
 	unsigned int numVertices;
+	unsigned int numArestas;
 	int direcionado;
 	int ponderado;
 } grafo;
@@ -14,8 +19,14 @@ typedef struct vertices
         lista listaArestasSaida;
         unsigned int grauEntrada;
         unsigned int grauSaida;
-        unsigned int peso;
 } vertices;
+
+typedef struct arestas
+{
+        unsigned int peso;
+        vertices * ponta1;
+        vertices * ponta2;
+}
 
 char *nome_grafo(grafo g)
 {
@@ -39,14 +50,7 @@ unsigned int n_vertices(grafo g)
 
 unsigned int n_arestas(grafo g)
 {
-	unsigned int acumulador = 0;
-	no *n = g.listaVertices->primeiro;
-	//Numero de arestas -> contar o número de adjacencias de cada entrada da lista
-	for (int i=0; i< g.numVertices; ++i)
-	{
-		acumulador += n.listaVertices.conteudo->grauSaida;
-		n = n->proximo;
-	}
+	return g.numArestas;
 }
 
 char *nome_vertice(vertice v)
@@ -74,12 +78,43 @@ char *nome_vertice(vertice v)
 
 grafo le_grafo(FILE *input)
 {
-        Agraph_t *g = agread(stdin, NULL);
+        Agraph_t *g = agread(input, NULL);
+        Agnode_t *v;
+        Agedge_t *a;
+        
+        void * aux;
+        grafo           new     = malloc(sizeof(grafo));
+        vertices        vt      = malloc(sizeof(vertices));
+        arestas         ar      = malloc(sizeof(arestas));
 
         if ( !g )
-                return 1;
+                return NULL;
+      
+                
+        strcmp(new.nome, agnameof(g))
+        new.direcionado         = agisdirected(g);
+        new.numVertices         = agnnodes(g);
+        new.numArestas          = agnedges(g);
+        new.ListaVertices       = constroi_lista();
+        
+        //Insere vértices
+        //Necessário colocar antes os vértices, pois a lista de adjacências é uma lista de ponteiros
+        for (int i=0; i<new.numVertices; ++i)
+        {
+                vt.nome         = agnameof(v);
+                
+                vt.listaArestasSaida = constroi_lista();
+                if (newdirecionado == 1)
+                        vt.listaArestasEntrada = constroi_lista();
+                else
+                        vt.ListaArestasEntrada = NULL;
+                      
+                insere_lista(vt, new.ListaVertices);
+        }
 
-        agclose(mostra_grafo(g));
+        agclose();
+        
+        return new;
 }
 
 //------------------------------------------------------------------------------
