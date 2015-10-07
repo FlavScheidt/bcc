@@ -7,7 +7,7 @@
 
 struct grafo 
 {
-	char nome [24];
+	char nome[65];
 	lista listavertice;
 	unsigned int numvertice;
 	unsigned int numArestas;
@@ -17,7 +17,7 @@ struct grafo
 
 struct vertice
 {
-        char nome [24];
+        char nome[65];
         lista listaArestasEntrada;
         lista listaArestasSaida;
         unsigned int grauEntrada;
@@ -26,9 +26,8 @@ struct vertice
 
 struct arestas
 {
-        unsigned int peso;
-        vertice ponta1;
-        vertice ponta2;
+        int peso;
+        vertice ponta;
 };
 
 char *nome_grafo(grafo g)
@@ -66,6 +65,48 @@ char *nome_vertice(vertice v)
 vertice * buscaVertice(char * nome)
 {
 }
+
+void guarda_arestas(Agraph_t *g, grafo new)
+{
+        Agedge_t *a;
+        Agnode_t *v;
+        arestas ar = malloc(sizeof(arestas));
+                
+        if (new->direcionado)
+        {
+                for (v=agfstnode(g); v; v=agnxtnode(g,v))
+                {
+                        //new->grauSaida = 0;
+                        //new->gauEntrada = 0;
+                        //Arestas saida
+                         for (a=agfstout(g,v); a; a=agnxtout(g,a))
+                         {
+                               ar->peso = agget(a, (unsigned int)"ar->peso");
+                               ar->ponta = buscaVertice(aghead(a));
+                               //new->grauSaida++;
+                         }
+                         //Arestas entrada
+                         for (a=agfstout(g,v); a; a=agnxtout(g,a))
+                         {
+                               ar->peso = agget(a, (unsigned int)"ar->peso");
+                               ar->ponta = buscaVertice(agtail(a));
+                               //new->grauEntrada++;
+                         }
+                }
+        }
+        else
+        {
+                for (v=agfstnode(g); v; v=agnxtnode(g,v))
+                {
+                        for (a=agfstedge(g,v); a; a=agnxtedge(g,a,v))
+                        {
+                                ar->peso = agget(a, (unsigned int)"ar->peso");
+                                ar->ponta = buscaVertice(aghead(a));
+                                //new->grauSaida++;
+                        }
+                }
+        }
+}
 //------------------------------------------------------------------------------
 // lê um grafo no formato dot de input, usando as rotinas de libcgraph
 // 
@@ -83,68 +124,62 @@ vertice * buscaVertice(char * nome)
 // devolve o grafo lido ou
 //         NULL em caso de erro 
 
-static Agraph_t * armazena_grafo(Agraph_t *g)
+static Agraph_t * armazena_grafo(Agraph_t *g, grafo new)
 {
+        int i=0;
+
         Agnode_t *v;
-        Agedge_t *a;
         
         no              n;
         void            *aux;
-        grafo           new     = malloc(sizeof(grafo));
         vertice         vt      = malloc(sizeof(vertice));
-        arestas         ar      = malloc(sizeof(arestas));
         
-        //cria novo grafo          
+        //cria novo grafo        
         strcpy(new->nome, agnameof(g));
         new->direcionado         = agisdirected(g);
         new->numvertice          = agnnodes(g);
         new->numArestas          = agnedges(g);
         new->listavertice        = constroi_lista();
         
-        printf("Grafo %s criado\n", new->nome);fflush(stdout);
-        
         //Insere vértices
         //Necessário colocar antes os vértices, pois a lista de adjacências é uma lista de ponteiros
-         for (v=agfstnode(g); v; v=agnxtnode(g,v))
+        for (v=agfstnode(g); v; v=agnxtnode(g,v))
         {
-                
                 strcpy(vt->nome, agnameof(v));
-                
-                printf("Vertice: %s \n", vt->nome);fflush(stdout);
                 
                 //Cria listas de arestas
                 vt->listaArestasSaida = constroi_lista();
                 if (new->direcionado == 1)
-                        vt->listaArestasEntrada = constroi_lista();
+                {
+                        vt->listaArestasEntrada = constroi_lista();              
+                }
                 else
+                {
                         vt->listaArestasEntrada = NULL;
+                        
+                }
                               
                 //Insere vértice na lista
                 n = insere_lista(vt, new->listavertice);
         }
         
-        //Insere arestas
-        //vtAux = primeiro_no(new->listavertice)->conteudo;
-        for (int i=0; i<new->numvertice; ++i)
-        {
-                
-        }        
+        guarda_arestas(g, new);
 
-
+        return g;
 }
 
 grafo le_grafo(FILE *input)
 {
+        grafo * new = malloc(sizeof(grafo));
         Agraph_t *g = agread(input, NULL);
-        
-          printf("Grafo %s carregado\n", agnameof(g));fflush(stdout);
         
         if ( !g )
                 return NULL;
       
-        agclose(armazena_grafo(g));
+      
+        agclose(armazena_grafo(g, new));
         
-        return &g;
+        return new;
 }
 
 //------------------------------------------------------------------------------
