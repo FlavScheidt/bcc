@@ -122,7 +122,6 @@ void guarda_arestas(Agraph_t *g, grafo new, vertice vt, Agnode_t *v)
 void insereVertice(Agraph_t *g, Agnode_t *v, grafo new)
 {
         no n;
-        int i;
         vertice vt = malloc(sizeof(vertice));
         
         strcpy(vt->nome, agnameof(v));
