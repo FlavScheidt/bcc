@@ -1,0 +1,36 @@
+Buscando nodo 1
+inseriu saida 
+Buscando nodo 5
+inseriu saida 
+Buscando nodo 2
+inseriu saida 
+Buscando nodo 6
+inseriu saida 
+Buscando nodo 3
+inseriu saida 
+Buscando nodo 7
+inseriu saida 
+Buscando nodo 4
+inseriu saida 
+Buscando nodo 8
+inseriu saida 
+Buscando nodo 0
+inseriu saida 
+Buscando nodo 9
+inseriu saida 
+Buscando nodo 7
+inseriu saida 
+Buscando nodo 8
+inseriu saida 
+Buscando nodo 9
+inseriu saida 
+Buscando nodo 5
+inseriu saida 
+Buscando nodo 6
+inseriu saida 
+nome: Petersen
+não direcionado
+não ponderado
+10 vértices
+15 arestas
+strict graph Petersen {

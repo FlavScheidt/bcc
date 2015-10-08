@@ -13,6 +13,7 @@ struct grafo
 	unsigned int numArestas;
 	int direcionado;
 	int ponderado;
+	int tam;
 };
 
 struct vertice
@@ -26,8 +27,8 @@ struct vertice
 
 struct arestas
 {
-        int peso;
-        vertice tail;
+        //int peso;
+        //vertice tail;
         vertice head;
 };
 
@@ -90,15 +91,24 @@ void insereAresta(Agedge_t *a, Agraph_t *g, Agnode_t *v, grafo new, unsigned int
         //char *aux = agget(a, (char *)"peso");
         
         //strToInt(ar->peso, strlen(aux), aux);
+        fprintf(stdout, "Buscando nodo %s\n", agnameof(aghead(a)));fflush(stdout);
         ar->head = buscaVertice(agnameof(aghead(a)), new);
-        ar->tail = buscaVertice(agnameof(agtail(a)), new);
+        
+        //ar->tail = buscaVertice(agnameof(agtail(a)), new);
         
         if (es)
+        {
                 n = insere_lista(ar, vt->listaArestasSaida);
+                        fprintf(stdout, "inseriu saida \n", agnameof(aghead(a)));fflush(stdout);
+                
+        }
         else
                 n = insere_lista(ar, vt->listaArestasEntrada);
                 
-        //fprintf(stdout, "%s - %s\n", ar->tail->nome, ar->head->nome); fflush(stdout);
+        new->tam++;
+                
+                //3351
+       // fprintf(stdout, "%s - %s %d \n", vt->nome, ar->head->nome, new->tam); fflush(stdout);
 }
 
 void guarda_arestas(Agraph_t *g, grafo new, vertice vt, Agnode_t *v)
@@ -149,6 +159,7 @@ void insereVertice(Agraph_t *g, Agnode_t *v, grafo new)
                               
         //Insere vértice na lista
         n = insere_lista(vt, new->listavertice);
+       
 }
 
 static Agraph_t * armazena_grafo(Agraph_t *g, grafo new)
@@ -179,13 +190,15 @@ static Agraph_t * armazena_grafo(Agraph_t *g, grafo new)
                 insereVertice(g, v, new);
         
         v=agfstnode(g);
-        for (n=primeiro_no(new->listavertice); n!=NULL; n=proximo_no(n))
+        new->tam = 0;
+        for (n=primeiro_no(new->listavertice); n; n=proximo_no(n))
         {
                 vt = conteudo(n);
                 guarda_arestas(g, new, vt, v);
-                v=agnxtnode(g,v);
                 i++;
+                v=agnxtnode(g,v);
         }
+        
 
         return g;
 }
@@ -216,17 +229,6 @@ grafo le_grafo(FILE *input)
 int destroi_grafo(void *g)
 {
 }
-
-//------------------------------------------------------------------------------
-// escreve o grafo g em output usando o formato dot, de forma que
-// 
-// 1-> todos os vértices são escritos antes de todas as arestas/arcos 
-// 
-// 2-> se uma aresta tem peso, este deve ser escrito como um atributo 
-//    de nome "peso"
-//
-// devolve o grafo escrito ou
-//         NULL em caso de erro 
 
 grafo escreve_grafo(FILE *output, grafo g)
 {
