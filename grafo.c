@@ -27,8 +27,16 @@ struct vertice
 struct arestas
 {
         int peso;
-        vertice ponta;
+        vertice tail;
+        vertice head;
 };
+
+
+void strToInt(int arr[], int sizeArr, char num[])
+{
+    for(int i = 0; i < sizeArr; i++)
+        arr[i] = (int)num[i] - 48;
+}
 
 char *nome_grafo(grafo g)
 {
@@ -68,54 +76,52 @@ vertice buscaVertice(char * nome, grafo new)
         for (no n=primeiro_no(new->listavertice); n; n=proximo_no(n))
         {
                 vt = conteudo(n);
-                if (strcmp(vt->nome, nome) == 1)
+                if (strcmp(vt->nome, nome) == 0)
                         return vt;
         }
         
         return NULL;
 }
 
+void insereAresta(Agedge_t *a, Agraph_t *g, Agnode_t *v, grafo new, unsigned int es, vertice vt)
+{
+        arestas ar = malloc(sizeof(arestas));
+        no n;
+        //char *aux = agget(a, (char *)"peso");
+        
+        //strToInt(ar->peso, strlen(aux), aux);
+        ar->head = buscaVertice(agnameof(aghead(a)), new);
+        ar->tail = buscaVertice(agnameof(agtail(a)), new);
+        
+        if (es)
+                n = insere_lista(ar, vt->listaArestasSaida);
+        else
+                n = insere_lista(ar, vt->listaArestasEntrada);
+                
+        //fprintf(stdout, "%s - %s\n", ar->tail->nome, ar->head->nome); fflush(stdout);
+}
+
 void guarda_arestas(Agraph_t *g, grafo new, vertice vt, Agnode_t *v)
 {
         Agedge_t *a;
-        arestas ar = malloc(sizeof(arestas));
         
-        no n0;
+       //Arestas saida
+       vt->grauSaida = 0;
+       for (a=agfstout(g,v); a; a=agnxtout(g,a))
+       {
+                vt->grauSaida++;
+                insereAresta(a, g, v, new, 1, vt);
+        }
         
         if (new->direcionado)
         {
-                vt->grauSaida = 0;
                 vt->grauEntrada = 0;
-                //Arestas saida
-                for (a=agfstout(g,v); a; a=agnxtout(g,a))
-                {
-                        ar->peso = agget(a, (unsigned int)"ar->peso");
-                        ar->ponta = buscaVertice(agnameof(aghead(a)), new);
-                        vt->grauSaida++;
-                        n0 = insere_lista(ar, vt->listaArestasSaida);
-                }
                 //Arestas entrada
-                for (a=agfstout(g,v); a; a=agnxtout(g,a))
+                for (a=agfstin(g,v); a; a=agnxtin(g,a))
                 {
-                        ar->peso = agget(a, (unsigned int)"ar->peso");
-                        ar->ponta = buscaVertice(agnameof(agtail(a)), new);
-                        vt->grauEntrada++;
-                        n0 = insere_lista(ar, vt->listaArestasEntrada);
+                         vt->grauEntrada++;
+                         insereAresta(a, g, v, new, 0, vt);
                 }
-                v=agnxtnode(g,v);
-        }
-        else
-        {
-                vt->grauSaida = 0;
-                for (a=agfstedge(g,v); a; a=agnxtedge(g,a,v))
-                {
-                        ar->peso = agget(a, (unsigned int)"ar->peso");
-                        ar->ponta = buscaVertice(agnameof(aghead(a)), new);
-                        printf("%s - %s\n", vt->nome, ar->ponta->nome);fflush(stdout);
-                        vt->grauSaida++;
-                        n0 = insere_lista(ar, vt->listaArestasSaida);
-                }
-                v=agnxtnode(g,v);
         }
 }
 
@@ -160,6 +166,8 @@ static Agraph_t * armazena_grafo(Agraph_t *g, grafo new)
         i = strlen(agnameof(g));
         vt->nome[i] = '\0';
         
+        i=0;
+        
         new->direcionado         = agisdirected(g);
         new->numvertice          = agnnodes(g);
         new->numArestas          = agnedges(g);
@@ -175,6 +183,8 @@ static Agraph_t * armazena_grafo(Agraph_t *g, grafo new)
         {
                 vt = conteudo(n);
                 guarda_arestas(g, new, vt, v);
+                v=agnxtnode(g,v);
+                i++;
         }
 
         return g;
@@ -223,14 +233,10 @@ grafo escreve_grafo(FILE *output, grafo g)
         no n,m;
         vertice v;
         arestas a;
-        char dir[1];
         
-        if (g->direcionado)
-                strcpy(dir,"->");
-        else
-                strcpy(dir,"--");
+        char dir = g->direcionado ? '>' : '-';
                 
-       // fprintf(output, "strict graph %s {\n", g->nome);fflush(output);
+        fprintf(output, "strict graph %s {\n", g->nome);fflush(output);
         
         for (n=primeiro_no(g->listavertice); n; n=proximo_no(n))
         {
@@ -238,7 +244,7 @@ grafo escreve_grafo(FILE *output, grafo g)
                 for(m=primeiro_no(v->listaArestasSaida); m; m=proximo_no(m))
                 {
                         a = conteudo(m);
-                        //fprintf(output, "%s %s \n", v->nome, dir);
+                        fprintf(output, "%s -%s %s [peso=] \n", v->nome, dir, a->head->nome);
                 }
         }
         fprintf(output, "}");
