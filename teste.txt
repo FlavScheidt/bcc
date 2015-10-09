@@ -1,36 +1,1066 @@
-Buscando nodo 1
-inseriu saida 
-Buscando nodo 5
-inseriu saida 
-Buscando nodo 2
-inseriu saida 
-Buscando nodo 6
-inseriu saida 
-Buscando nodo 3
-inseriu saida 
-Buscando nodo 7
-inseriu saida 
-Buscando nodo 4
-inseriu saida 
-Buscando nodo 8
-inseriu saida 
-Buscando nodo 0
-inseriu saida 
-Buscando nodo 9
-inseriu saida 
-Buscando nodo 7
-inseriu saida 
-Buscando nodo 8
-inseriu saida 
-Buscando nodo 9
-inseriu saida 
-Buscando nodo 5
-inseriu saida 
-Buscando nodo 6
-inseriu saida 
-nome: Petersen
-não direcionado
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+0
+nome: emacs24
+direcionado
 não ponderado
-10 vértices
-15 arestas
-strict graph Petersen {
+154 vértices
+353 arestas
+strict graph emacs24 {
+libtinfo5 -> libtinfo5 [peso=0] 
+libtinfo5 -> libmagickwand-6.q16-2 [peso=0] 
+libtinfo5 -> libmagickcore-6.q16-2 [peso=0] 
+libtinfo5 -> libxft2 [peso=0] 
+libtinfo5 -> libsm6 [peso=0] 
+libtinfo5 -> libotf0 [peso=0] 
+libtinfo5 -> libxpm4 [peso=0] 
+libtinfo5 -> libm17n-0 [peso=0] 
+libtinfo5 -> libice6 [peso=0] 
+libtinfo5 -> librsvg2-2 [peso=0] 
+libtinfo5 -> libxrandr2 [peso=0] 
+libtinfo5 -> libxinerama1 [peso=0] 
+libtinfo5 -> libpangocairo-1.0-0 [peso=0] 
+libtinfo5 -> libpango-1.0-0 [peso=0] 
+libtinfo5 -> libgtk-3-0 [peso=0] 
+libtinfo5 -> libgpm2 [peso=0] 
+libtinfo5 -> libgomp1 [peso=0] 
+libtinfo5 -> libgif4 [peso=0] 
+libtinfo5 -> libtiff5 [peso=0] 
+libtinfo5 -> libjpeg62-turbo [peso=0] 
+libtinfo5 -> libgdk-pixbuf2.0-0 [peso=0] 
+libtinfo5 -> libxrender1 [peso=0] 
+libtinfo5 -> libpng12-0 [peso=0] 
+libtinfo5 -> libfreetype6 [peso=0] 
+libtinfo5 -> libfontconfig1 [peso=0] 
+libtinfo5 -> libcairo2 [peso=0] 
+libtinfo5 -> libcairo-gobject2 [peso=0] 
+libtinfo5 -> libatk1.0-0 [peso=0] 
+libtinfo5 -> libasound2 [peso=0] 
+libtinfo5 -> libacl1 [peso=0] 
+libtinfo5 -> libxml2 [peso=0] 
+libtinfo5 -> libgnutls-deb0-28 [peso=0] 
+libtinfo5 -> libgconf-2-4 [peso=0] 
+libtinfo5 -> libglib2.0-0 [peso=0] 
+libtinfo5 -> libselinux1 [peso=0] 
+libtinfo5 -> libdbus-1-3 [peso=0] 
+libtinfo5 -> gconf-service [peso=0] 
+libtinfo5 -> emacs24-bin-common [peso=0] 
+libmagickwand-6.q16-2 -> liblockfile1 [peso=0] 
+libmagickwand-6.q16-2 -> emacs24-common [peso=0] 
+imagemagick-common -> dpkg [peso=0] 
+imagemagick-common -> emacsen-common [peso=0] 
+liblqr-1-0 -> liblockfile-bin [peso=0] 
+libbz2-1.0 -> libxml2 [peso=0] 
+libbz2-1.0 -> libldap-2.4-2 [peso=0] 
+libbz2-1.0 -> gconf2-common [peso=0] 
+libbz2-1.0 -> libgconf-2-4 [peso=0] 
+libbz2-1.0 -> libglib2.0-0 [peso=0] 
+libbz2-1.0 -> libdbus-glib-1-2 [peso=0] 
+libbz2-1.0 -> libdbus-1-3 [peso=0] 
+libmagickcore-6.q16-2 -> libsystemd0 [peso=0] 
+m17n-db -> libselinux1 [peso=0] 
+m17n-db -> liblzma5 [peso=0] 
+m17n-db -> libgcrypt20 [peso=0] 
+m17n-db -> libcap2 [peso=0] 
+libxt6 -> libattr1 [peso=0] 
+passwd -> libgpg-error0 [peso=0] 
+libotf0 -> libpcre3 [peso=0] 
+libvpx2 -> libglib2.0-0 [peso=0] 
+libvpx2 -> libdbus-1-3 [peso=0] 
+libfribidi0 -> gconf2-common [peso=0] 
+libfribidi0 -> libglib2.0-0 [peso=0] 
+libfribidi0 -> libdbus-glib-1-2 [peso=0] 
+libfribidi0 -> libdbus-1-3 [peso=0] 
+libm17n-0 -> ucf [peso=0] 
+libice6 -> libsasl2-2 [peso=0] 
+libice6 -> libgnutls-deb0-28 [peso=0] 
+shared-mime-info -> libtasn1-6 [peso=0] 
+shared-mime-info -> libp11-kit0 [peso=0] 
+shared-mime-info -> libnettle6 [peso=0] 
+shared-mime-info -> libhogweed4 [peso=0] 
+shared-mime-info -> libgmp10 [peso=0] 
+glib-networking-common -> libnettle6 [peso=0] 
+glib-networking-common -> libgmp10 [peso=0] 
+libproxy1v5 -> libffi6 [peso=0] 
+libsoup2.4-1 -> libsasl2-modules-db [peso=0] 
+libsoup-gnome2.4-1 -> libdb5.3 [peso=0] 
+libjson-glib-1.0-common -> libicu55 [peso=0] 
+libjson-glib-1.0-common -> liblzma5 [peso=0] 
+libkrb5-3 -> libattr1 [peso=0] 
+libkrb5support0 -> libasound2-data [peso=0] 
+libk5crypto3 -> libatk1.0-data [peso=0] 
+libk5crypto3 -> libglib2.0-0 [peso=0] 
+libgssapi-krb5-2 -> libcairo2 [peso=0] 
+libgssapi-krb5-2 -> libglib2.0-0 [peso=0] 
+libavahi-common-data -> libxrender1 [peso=0] 
+libavahi-common-data -> libxext6 [peso=0] 
+libavahi-common-data -> libxcb-shm0 [peso=0] 
+libavahi-common-data -> libxcb1 [peso=0] 
+libavahi-common-data -> libxcb-render0 [peso=0] 
+libavahi-common-data -> libpixman-1-0 [peso=0] 
+libavahi-common-data -> libpng12-0 [peso=0] 
+libavahi-common-data -> libfreetype6 [peso=0] 
+libavahi-common-data -> libfontconfig1 [peso=0] 
+libavahi-client3 -> libpng12-0 [peso=0] 
+libcolord2 -> libxcb1 [peso=0] 
+libcroco3 -> libxdmcp6 [peso=0] 
+libcroco3 -> libxau6 [peso=0] 
+libxrandr2 -> libxcb1 [peso=0] 
+libxinerama1 -> libgdk-pixbuf2.0-common [peso=0] 
+libxinerama1 -> libtiff5 [peso=0] 
+libxinerama1 -> libjpeg62-turbo [peso=0] 
+libxinerama1 -> libpng12-0 [peso=0] 
+libxinerama1 -> libglib2.0-0 [peso=0] 
+libxdamage1 -> libjbig0 [peso=0] 
+libxdamage1 -> libjpeg62-turbo [peso=0] 
+libxdamage1 -> liblzma5 [peso=0] 
+libxcb-xfixes0 -> gcc-5-base [peso=0] 
+libx11-xcb1 -> shared-mime-info [peso=0] 
+libx11-xcb1 -> libsoup2.4-1 [peso=0] 
+libx11-xcb1 -> librest-0.7-0 [peso=0] 
+libx11-xcb1 -> libjson-glib-1.0-0 [peso=0] 
+libx11-xcb1 -> libcups2 [peso=0] 
+libx11-xcb1 -> libcolord2 [peso=0] 
+libx11-xcb1 -> libxrandr2 [peso=0] 
+libx11-xcb1 -> libxkbcommon0 [peso=0] 
+libx11-xcb1 -> libxinerama1 [peso=0] 
+libx11-xcb1 -> libxi6 [peso=0] 
+libx11-xcb1 -> libxdamage1 [peso=0] 
+libx11-xcb1 -> libxfixes3 [peso=0] 
+libx11-xcb1 -> libxcursor1 [peso=0] 
+libx11-xcb1 -> libxcomposite1 [peso=0] 
+libx11-xcb1 -> libwayland-egl1-mesa [peso=0] 
+libx11-xcb1 -> libwayland-cursor0 [peso=0] 
+libx11-xcb1 -> libwayland-client0 [peso=0] 
+libx11-xcb1 -> libpangoft2-1.0-0 [peso=0] 
+libx11-xcb1 -> libpangocairo-1.0-0 [peso=0] 
+libx11-xcb1 -> libpango-1.0-0 [peso=0] 
+libx11-xcb1 -> libepoxy0 [peso=0] 
+libx11-xcb1 -> libatk-bridge2.0-0 [peso=0] 
+libx11-xcb1 -> libgtk-3-common [peso=0] 
+libx11-xcb1 -> libgdk-pixbuf2.0-0 [peso=0] 
+libx11-xcb1 -> libxext6 [peso=0] 
+libx11-xcb1 -> libfreetype6 [peso=0] 
+libx11-xcb1 -> libfontconfig1 [peso=0] 
+libx11-xcb1 -> libcairo2 [peso=0] 
+libx11-xcb1 -> libcairo-gobject2 [peso=0] 
+libx11-xcb1 -> libatk1.0-0 [peso=0] 
+libx11-xcb1 -> libxml2 [peso=0] 
+libx11-xcb1 -> libglib2.0-0 [peso=0] 
+libudev1 -> adwaita-icon-theme [peso=0] 
+libudev1 -> dconf-gsettings-backend [peso=0] 
+libwayland-server0 -> libdconf1 [peso=0] 
+libwayland-server0 -> dconf-service [peso=0] 
+libwayland-server0 -> dconf-service [peso=0] 
+libwayland-server0 -> libglib2.0-0 [peso=0] 
+libgbm1 -> libdconf1 [peso=0] 
+libgbm1 -> libglib2.0-0 [peso=0] 
+libexpat1 -> libglib2.0-0 [peso=0] 
+libdrm2 -> librsvg2-common [peso=0] 
+libdrm2 -> libgtk-3-bin [peso=0] 
+libdrm2 -> hicolor-icon-theme [peso=0] 
+libwayland-egl1-mesa -> libxrandr2 [peso=0] 
+libwayland-egl1-mesa -> libxkbcommon0 [peso=0] 
+libwayland-egl1-mesa -> libxinerama1 [peso=0] 
+libwayland-egl1-mesa -> libxi6 [peso=0] 
+libwayland-egl1-mesa -> libxdamage1 [peso=0] 
+libwayland-egl1-mesa -> libxfixes3 [peso=0] 
+libwayland-egl1-mesa -> libxcursor1 [peso=0] 
+libwayland-egl1-mesa -> libxcomposite1 [peso=0] 
+libwayland-egl1-mesa -> libwayland-egl1-mesa [peso=0] 
+libwayland-egl1-mesa -> libwayland-cursor0 [peso=0] 
+libwayland-egl1-mesa -> libwayland-client0 [peso=0] 
+libwayland-egl1-mesa -> libpangoft2-1.0-0 [peso=0] 
+libwayland-egl1-mesa -> libpangocairo-1.0-0 [peso=0] 
+libwayland-egl1-mesa -> libpango-1.0-0 [peso=0] 
+libwayland-egl1-mesa -> libepoxy0 [peso=0] 
+libwayland-egl1-mesa -> libatk-bridge2.0-0 [peso=0] 
+libwayland-egl1-mesa -> libgtk-3-common [peso=0] 
+libwayland-egl1-mesa -> libgtk-3-0 [peso=0] 
+libwayland-egl1-mesa -> libgdk-pixbuf2.0-0 [peso=0] 
+libwayland-egl1-mesa -> libxext6 [peso=0] 
+libwayland-egl1-mesa -> libfreetype6 [peso=0] 
+libwayland-egl1-mesa -> libfontconfig1 [peso=0] 
+libwayland-egl1-mesa -> libcairo2 [peso=0] 
+libwayland-egl1-mesa -> libcairo-gobject2 [peso=0] 
+libwayland-egl1-mesa -> libatk1.0-0 [peso=0] 
+libwayland-egl1-mesa -> libglib2.0-0 [peso=0] 
+libwayland-cursor0 -> libatspi2.0-0 [peso=0] 
+libwayland-cursor0 -> libatk1.0-0 [peso=0] 
+libwayland-cursor0 -> libglib2.0-0 [peso=0] 
+libwayland-cursor0 -> libdbus-1-3 [peso=0] 
+libwayland-client0 -> libglib2.0-0 [peso=0] 
+libwayland-client0 -> libdbus-1-3 [peso=0] 
+libharfbuzz0b -> libthai0 [peso=0] 
+libharfbuzz0b -> fontconfig [peso=0] 
+libharfbuzz0b -> libglib2.0-0 [peso=0] 
+libpangocairo-1.0-0 -> libdatrie1 [peso=0] 
+libpangocairo-1.0-0 -> libthai-data [peso=0] 
+libthai0 -> libpangoft2-1.0-0 [peso=0] 
+libthai0 -> libpango-1.0-0 [peso=0] 
+libthai0 -> libfreetype6 [peso=0] 
+libthai0 -> libfontconfig1 [peso=0] 
+libthai0 -> libcairo2 [peso=0] 
+libthai0 -> libglib2.0-0 [peso=0] 
+fontconfig -> libharfbuzz0b [peso=0] 
+fontconfig -> libpango-1.0-0 [peso=0] 
+fontconfig -> libfreetype6 [peso=0] 
+fontconfig -> libfontconfig1 [peso=0] 
+fontconfig -> libglib2.0-0 [peso=0] 
+libpango-1.0-0 -> libgraphite2-3 [peso=0] 
+libpango-1.0-0 -> libfreetype6 [peso=0] 
+libpango-1.0-0 -> libglib2.0-0 [peso=0] 
+libatspi2.0-0 -> libffi6 [peso=0] 
+libatk-bridge2.0-0 -> libwayland-client0 [peso=0] 
+libgtk-3-bin -> libegl1-mesa [peso=0] 
+hicolor-icon-theme -> libxcb-xfixes0 [peso=0] 
+hicolor-icon-theme -> libxcb-shape0 [peso=0] 
+hicolor-icon-theme -> libxcb-dri2-0 [peso=0] 
+hicolor-icon-theme -> libx11-xcb1 [peso=0] 
+hicolor-icon-theme -> libudev1 [peso=0] 
+hicolor-icon-theme -> libwayland-server0 [peso=0] 
+hicolor-icon-theme -> libgbm1 [peso=0] 
+hicolor-icon-theme -> libexpat1 [peso=0] 
+hicolor-icon-theme -> libdrm2 [peso=0] 
+hicolor-icon-theme -> libwayland-client0 [peso=0] 
+hicolor-icon-theme -> libxcb1 [peso=0] 
+hicolor-icon-theme -> libxcb-render0 [peso=0] 
+dconf-service -> libudev1 [peso=0] 
+dconf-service -> libwayland-server0 [peso=0] 
+dconf-service -> libexpat1 [peso=0] 
+dconf-service -> libdrm2 [peso=0] 
+dconf-service -> libwayland-client0 [peso=0] 
+dconf-gsettings-backend -> libffi6 [peso=0] 
+libgtk-3-common -> libselinux1 [peso=0] 
+libgtk-3-common -> libcap2 [peso=0] 
+libgpm2 -> libxcb1 [peso=0] 
+gcc-5-base -> libxcb1 [peso=0] 
+libgomp1 -> libxcb1 [peso=0] 
+libgdk-pixbuf2.0-common -> libxfixes3 [peso=0] 
+libgdk-pixbuf2.0-common -> libxrender1 [peso=0] 
+libtiff5 -> libxfixes3 [peso=0] 
+libjpeg62-turbo -> libxext6 [peso=0] 
+libgdk-pixbuf2.0-0 -> libxext6 [peso=0] 
+libxrender1 -> xkb-data [peso=0] 
+libxcb-shm0 -> libxrender1 [peso=0] 
+libxcb-shm0 -> libxext6 [peso=0] 
+libxdmcp6 -> librsvg2-2 [peso=0] 
+libxdmcp6 -> libgdk-pixbuf2.0-0 [peso=0] 
+libxdmcp6 -> libglib2.0-0 [peso=0] 
+libxau6 -> libcroco3 [peso=0] 
+libxau6 -> libpangocairo-1.0-0 [peso=0] 
+libxau6 -> libpango-1.0-0 [peso=0] 
+libxau6 -> libgdk-pixbuf2.0-0 [peso=0] 
+libxau6 -> libcairo2 [peso=0] 
+libxau6 -> libxml2 [peso=0] 
+libxau6 -> libglib2.0-0 [peso=0] 
+libxcb1 -> libxml2 [peso=0] 
+libxcb1 -> libglib2.0-0 [peso=0] 
+libxcb-render0 -> liblcms2-2 [peso=0] 
+libxcb-render0 -> libudev1 [peso=0] 
+libxcb-render0 -> libglib2.0-0 [peso=0] 
+libpng12-0 -> libgssapi-krb5-2 [peso=0] 
+libpng12-0 -> libavahi-common3 [peso=0] 
+libpng12-0 -> libavahi-client3 [peso=0] 
+libpng12-0 -> libgnutls-deb0-28 [peso=0] 
+libfreetype6 -> libavahi-common3 [peso=0] 
+libfreetype6 -> libdbus-1-3 [peso=0] 
+libfontconfig1 -> libavahi-common-data [peso=0] 
+libcairo-gobject2 -> libkrb5-3 [peso=0] 
+libcairo-gobject2 -> libkrb5support0 [peso=0] 
+libcairo-gobject2 -> libkeyutils1 [peso=0] 
+libcairo-gobject2 -> libk5crypto3 [peso=0] 
+libcairo-gobject2 -> libcomerr2 [peso=0] 
+libatk1.0-0 -> libkrb5support0 [peso=0] 
+libatk1.0-0 -> libkeyutils1 [peso=0] 
+libasound2 -> libkeyutils1 [peso=0] 
+libacl1 -> libkrb5support0 [peso=0] 
+libacl1 -> libkeyutils1 [peso=0] 
+libacl1 -> libk5crypto3 [peso=0] 
+libacl1 -> libcomerr2 [peso=0] 
+libicu55 -> libjson-glib-1.0-common [peso=0] 
+libicu55 -> libglib2.0-0 [peso=0] 
+libdb5.3 -> libsoup2.4-1 [peso=0] 
+libdb5.3 -> libsoup-gnome2.4-1 [peso=0] 
+libdb5.3 -> libxml2 [peso=0] 
+libdb5.3 -> libglib2.0-0 [peso=0] 
+libsasl2-modules-db -> libsoup2.4-1 [peso=0] 
+libsasl2-modules-db -> libglib2.0-0 [peso=0] 
+libsasl2-2 -> glib-networking [peso=0] 
+libsasl2-2 -> libsqlite3-0 [peso=0] 
+libsasl2-2 -> libxml2 [peso=0] 
+libsasl2-2 -> libglib2.0-0 [peso=0] 
+libffi6 -> (null) [peso=0] 
+libffi6 -> glib-networking-common [peso=0] 
+libffi6 -> (null) [peso=0] 
+libffi6 -> (null) [peso=0] 
+libffi6 -> libproxy1v5 [peso=0] 
+libffi6 -> libp11-kit0 [peso=0] 
+libffi6 -> libgnutls-deb0-28 [peso=0] 
+libffi6 -> libglib2.0-0 [peso=0] 
+libnettle6 -> glib-networking-common [peso=0] 
+libnettle6 -> libproxy1v5 [peso=0] 
+libnettle6 -> libglib2.0-0 [peso=0] 
+libgmp10 -> dconf-gsettings-backend [peso=0] 
+libgnutls-deb0-28 -> libxml2 [peso=0] 
+libgnutls-deb0-28 -> libglib2.0-0 [peso=0] 
+libldap-2.4-2 -> x11-common [peso=0] 
+gconf2-common -> m17n-db [peso=0] 
+gconf2-common -> libxt6 [peso=0] 
+gconf2-common -> libxft2 [peso=0] 
+gconf2-common -> libsm6 [peso=0] 
+gconf2-common -> libotf0 [peso=0] 
+gconf2-common -> libgd3 [peso=0] 
+gconf2-common -> libfribidi0 [peso=0] 
+gconf2-common -> libice6 [peso=0] 
+gconf2-common -> libthai0 [peso=0] 
+gconf2-common -> libpng12-0 [peso=0] 
+gconf2-common -> libfreetype6 [peso=0] 
+gconf2-common -> libfontconfig1 [peso=0] 
+gconf2-common -> libxml2 [peso=0] 
+libglib2.0-0 -> libxpm4 [peso=0] 
+libglib2.0-0 -> libvpx2 [peso=0] 
+libglib2.0-0 -> libtiff5 [peso=0] 
+libglib2.0-0 -> libjpeg62-turbo [peso=0] 
+libglib2.0-0 -> libpng12-0 [peso=0] 
+libglib2.0-0 -> libfreetype6 [peso=0] 
+libglib2.0-0 -> libfontconfig1 [peso=0] 
+libselinux1 -> libpng12-0 [peso=0] 
+libselinux1 -> libfreetype6 [peso=0] 
+liblzma5 -> libuuid1 [peso=0] 
+liblzma5 -> libice6 [peso=0] 
+libgpg-error0 -> passwd [peso=0] 
+libattr1 -> libxrender1 [peso=0] 
+libattr1 -> libfreetype6 [peso=0] 
+libattr1 -> libfontconfig1 [peso=0] 
+libcap2 -> libsm6 [peso=0] 
+libcap2 -> libice6 [peso=0] 
+libdbus-1-3 -> imagemagick-common [peso=0] 
+libdbus-1-3 -> libopenjp2-7 [peso=0] 
+libdbus-1-3 -> libltdl7 [peso=0] 
+libdbus-1-3 -> liblqr-1-0 [peso=0] 
+libdbus-1-3 -> libfftw3-double3 [peso=0] 
+libdbus-1-3 -> libbz2-1.0 [peso=0] 
+libdbus-1-3 -> liblcms2-2 [peso=0] 
+libdbus-1-3 -> libgomp1 [peso=0] 
+libdbus-1-3 -> libjbig0 [peso=0] 
+libdbus-1-3 -> libtiff5 [peso=0] 
+libdbus-1-3 -> libjpeg62-turbo [peso=0] 
+libdbus-1-3 -> libxext6 [peso=0] 
+libdbus-1-3 -> libpng12-0 [peso=0] 
+libdbus-1-3 -> libfreetype6 [peso=0] 
+libdbus-1-3 -> libfontconfig1 [peso=0] 
+libdbus-1-3 -> libxml2 [peso=0] 
+libdbus-1-3 -> liblzma5 [peso=0] 
+libdbus-1-3 -> dpkg [peso=0] 
+liblockfile-bin -> libgomp1 [peso=0] 
+liblockfile1 -> libglib2.0-0 [peso=0] 
+emacs24-common -> dpkg [peso=0] 
+emacs24-bin-common -> imagemagick-common [peso=0] 
+emacs24-bin-common -> libmagickcore-6.q16-2 [peso=0] 
+emacs24-bin-common -> libgomp1 [peso=0] 
+emacs24-bin-common -> dpkg [peso=0] 
+}
