@@ -100,7 +100,7 @@ void insereAresta(Agedge_t *a, Agraph_t *g, Agnode_t *v, grafo new, unsigned int
              
         //fprintf(stdout, "%s\n", ar->peso);fflush(stdout);
         
-        fprintf(stdout, "%s %s - %s\n", agnameof(v),  agnameof(agtail(a)), agnameof(aghead(a)));fflush(stdout);
+        fprintf(stdout, "%s %s - %s\n", vt->nome,  agnameof(agtail(a)), agnameof(aghead(a)));fflush(stdout);
         ar->head = buscaVertice(agnameof(aghead(a)), new);
         //ar->tail = buscaVertice(agnameof(agtail(a)), new);
         
