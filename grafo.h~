@@ -24,7 +24,7 @@
 
 typedef struct grafo *grafo;
 
-typedef struct aresta *aresta;
+typedef struct arestas *arestas;
 
 //------------------------------------------------------------------------------
 // devolve o nome do grafo g
