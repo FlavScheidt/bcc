@@ -221,10 +221,7 @@ static Agraph_t * guardaGrafo(Agraph_t *g, grafo new)
                 if (new->direcionado)
                 {   
                         for (Agedge_t *a=agfstout(g,v); a; a=agnxtout(g,a))
-                        {
-                                if (buscaAresta(agnameof(aghead(a)), agnameof(agtail(a)), new) == NULL)
-                                        insereNovaAresta(v, a, new);
-                        }
+                                insereNovaAresta(v, a, new);
                 }
                 else
                 {                
@@ -304,38 +301,14 @@ grafo escreve_grafo(FILE *output, grafo g)
 // devolve a vizinhança do vértice v
 lista vizinhanca(vertice v)
 {
-        aresta ar;
-        no aux;
-        lista vizinhanca = constroi_lista;
-        
-        for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
-        {  
-                ar = conteudo(n);
-                if (strcmp(nome_vertice(ar->head), nome_vertice(v)) == 0)
-                      aux = insere_lista(ar->tail, vizinhanca);
-                else if strcmp(nome_vertice(ar->tail), nome_vertice(v)) == 0)
-                       aux = insere_lista(ar->tail, vizinhanca);
-        }
-        
-        return vizinhanca;
+        return v->arestasSaida;
 }
 //------------------------------------------------------------------------------
 // devolve a vizinhança de entrada do vértice v
 
 lista vizinhanca_entrada(vertice v)
 {
-        aresta ar;
-        no aux;
-        lista vizinhanca = constroi_lista;
-        
-        for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
-        {  
-                ar = conteudo(n);
-                if (strcmp(nome_vertice(ar->head), nome_vertice(v)) == 0)
-                      aux = insere_lista(ar->tail, vizinhanca);
-        }
-        
-        return vizinhanca;
+        return v->arestasEntrada;
 }
 
 //------------------------------------------------------------------------------
@@ -343,18 +316,7 @@ lista vizinhanca_entrada(vertice v)
 
 lista vizinhanca_saida(vertice v)
 {
-        aresta ar;
-        no aux;
-        lista vizinhanca = constroi_lista;
-        
-        for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
-        {  
-                ar = conteudo(n);
-                if (strcmp(nome_vertice(ar->tail), nome_vertice(v)) == 0)
-                      aux = insere_lista(ar->head, vizinhanca);
-        }
-        
-        return vizinhanca;
+        return v->arestasSaida;
 }
 //------------------------------------------------------------------------------
 // devolve o grau do vértice v

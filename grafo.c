@@ -221,10 +221,7 @@ static Agraph_t * guardaGrafo(Agraph_t *g, grafo new)
                 if (new->direcionado)
                 {   
                         for (Agedge_t *a=agfstout(g,v); a; a=agnxtout(g,a))
-                        {
-                                if (buscaAresta(agnameof(aghead(a)), agnameof(agtail(a)), new) == NULL)
-                                        insereNovaAresta(v, a, new);
-                        }
+                                insereNovaAresta(v, a, new);
                 }
                 else
                 {                
