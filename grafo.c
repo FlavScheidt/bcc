@@ -20,7 +20,7 @@
 
 struct grafo
 {
-        char * nome;
+        char nome[32];
         unsigned int numArestas;
         unsigned int numVertices;
         int ponderado;
@@ -38,7 +38,7 @@ struct aresta
 
 struct vertice
 {
-        char * nome;
+        char nome[32];
         unsigned int grauEntrada;
         unsigned int grauSaida;
 };
@@ -151,7 +151,7 @@ void insereNovoVertice(Agnode_t * v, grafo new)
 {
         vertice vt = malloc(sizeof(vertice));
         
-        vt->nome = agnameof(v);
+        strcpy(vt->nome, agnameof(v));
         vt->grauEntrada = 0;
         vt->grauSaida   = 0;
         
@@ -161,26 +161,21 @@ void insereNovoVertice(Agnode_t * v, grafo new)
 
 void insereNovaAresta(Agnode_t * v, Agedge_t * a, grafo new)
 {      
-        vertice vt;
-
        aresta ar = malloc(sizeof(aresta));
        
-       //vt = buscaVertice(agnameof(aghead(a)), new);
-               //if (vt == NULL)
-               //{
-                        insereNovoVertice(aghead(a), new);
-                        ar->head = conteudo(primeiro_no(new->listaVertices));
-               //}
-               //else
-                //ar->head = vt;
-
-               //ar->tail = buscaVertice(agnameof(agtail(a)), new);
-               //if (ar->tail == NULL)
-              // {
-                        insereNovoVertice(agtail(a), new);
-                        ar->tail = conteudo(primeiro_no(new->listaVertices));
-              //}
-
+       ar->head = buscaVertice(agnameof(aghead(a)), new);
+       if (ar->head == NULL)
+       {
+                insereNovoVertice(aghead(a), new);
+                ar->head = conteudo(primeiro_no(new->listaVertices));
+        }
+        
+        ar->tail = buscaVertice(agnameof(agtail(a)), new);
+        if (ar->tail == NULL)
+        {
+                insereNovoVertice(agtail(a), new);
+                ar->tail = conteudo(primeiro_no(new->listaVertices));
+        }
        
         ar->peso = agget(a, (char *)"peso");
         if (ar->peso == NULL)
@@ -196,7 +191,7 @@ static Agraph_t * guardaGrafo(Agraph_t *g, grafo new)
         
         new->listaArestas       = constroi_lista();
         new->listaVertices      = constroi_lista();
-        new->nome               = agnameof(g);
+        strcpy(new->nome, agnameof(g));
         new->direcionado        = agisdirected(g);
         new->ponderado          = 0; //Só saberemos com certeza quando iniciarmos a importação
         new->numArestas         = agnedges(g);
@@ -206,7 +201,7 @@ static Agraph_t * guardaGrafo(Agraph_t *g, grafo new)
         for (Agnode_t *v=agfstnode(g); v; v=agnxtnode(g,v)) 
         {
                 //Busca vértice na lista, se não existir, aloca novo grafo
-               // if (buscaVertice(agnameof(v), new) == NULL)
+                if (buscaVertice(agnameof(v), new) == NULL)
                         insereNovoVertice(v, new);
                         
                 for (Agedge_t *a=agfstedge(g,v); a; a=agnxtedge(g,a,v))
@@ -269,7 +264,7 @@ grafo escreve_grafo(FILE *output, grafo g)
         for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
         {  
                 ar = conteudo(n);
-                fprintf(output, "%s %s %s [peso=%s]\n", nome_vertice(ar->tail), dir, nome_vertice(ar->tail), ar->peso);fflush(output);
+                fprintf(output, "%s %s %s [peso=%s]\n", nome_vertice(ar->tail), dir, nome_vertice(ar->head), ar->peso);fflush(output);
         }
         fprintf(output, "}\n");fflush(output);
         
