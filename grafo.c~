@@ -304,14 +304,38 @@ grafo escreve_grafo(FILE *output, grafo g)
 // devolve a vizinhança do vértice v
 lista vizinhanca(vertice v)
 {
-        return v->arestasSaida;
+        aresta ar;
+        no aux;
+        lista vizinhanca = constroi_lista;
+        
+        for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
+        {  
+                ar = conteudo(n);
+                if (strcmp(nome_vertice(ar->head), nome_vertice(v)) == 0)
+                      aux = insere_lista(ar->tail, vizinhanca);
+                else if strcmp(nome_vertice(ar->tail), nome_vertice(v)) == 0)
+                       aux = insere_lista(ar->tail, vizinhanca);
+        }
+        
+        return vizinhanca;
 }
 //------------------------------------------------------------------------------
 // devolve a vizinhança de entrada do vértice v
 
 lista vizinhanca_entrada(vertice v)
 {
-        return v->arestasEntrada;
+        aresta ar;
+        no aux;
+        lista vizinhanca = constroi_lista;
+        
+        for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
+        {  
+                ar = conteudo(n);
+                if (strcmp(nome_vertice(ar->head), nome_vertice(v)) == 0)
+                      aux = insere_lista(ar->tail, vizinhanca);
+        }
+        
+        return vizinhanca;
 }
 
 //------------------------------------------------------------------------------
@@ -319,7 +343,18 @@ lista vizinhanca_entrada(vertice v)
 
 lista vizinhanca_saida(vertice v)
 {
-        return v->arestasSaida;
+        aresta ar;
+        no aux;
+        lista vizinhanca = constroi_lista;
+        
+        for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
+        {  
+                ar = conteudo(n);
+                if (strcmp(nome_vertice(ar->tail), nome_vertice(v)) == 0)
+                      aux = insere_lista(ar->head, vizinhanca);
+        }
+        
+        return vizinhanca;
 }
 //------------------------------------------------------------------------------
 // devolve o grau do vértice v
