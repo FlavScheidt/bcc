@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "grafo.h"
+#include "lista.h"
 
 //------------------------------------------------------------------------------
 //rc: enriquecer o teste com mais processamento que possa servir de exemplo
