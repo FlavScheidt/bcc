@@ -1,1 +1,0 @@
-busca emacs24 -> emacs24-bin-common 
