@@ -126,11 +126,13 @@ aresta buscaAresta(char * head, char * tail, grafo g)
 {
         aresta ar;
         
-        if (g->direcionado)
+        if (direcionado(g))
         {
+                fprintf(stdout, "busca %s -> %s \n", tail, head);fflush(stdout);
                 for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
                 {       
                         ar = conteudo(n); 
+                        fprintf(stdout, "achou %s -> %s \n", nome_vertice(ar->tail), nome_vertice(ar->head));fflush(stdout);
                         if (strcmp(head, nome_vertice(ar->head)) == 0 && strcmp(tail, nome_vertice(ar->tail)) == 0)     
                                 return ar;
                 }
@@ -163,34 +165,37 @@ void insereNovoVertice(Agnode_t * v, grafo new)
         vt = conteudo(n);
 }
 
-void insereNovaAresta(Agnode_t * v, Agedge_t * a, grafo new)
+void insereNovaAresta(Agnode_t * v, Agedge_t * a, grafo new, int dir)
 {      
         aresta ar = malloc(sizeof(aresta));
-        
         no n;
        
         ar->head = buscaVertice(agnameof(aghead(a)), new);
+        ar->tail = buscaVertice(agnameof(agtail(a)), new);
         if (ar->head == NULL)
         {
                 insereNovoVertice(aghead(a), new);
                 ar->head = conteudo(primeiro_no(new->listaVertices));
-                ar->head->grauEntrada++;
-                n = insere_lista(ar, ar->head->arestasEntrada);
         }
-        
-        ar->tail = buscaVertice(agnameof(agtail(a)), new);
         if (ar->tail == NULL)
         {
                 insereNovoVertice(agtail(a), new);
                 ar->tail = conteudo(primeiro_no(new->listaVertices));
-                ar->tail->grauSaida++;
-                
-                if (new->direcionado)
-                        n = insere_lista(ar, ar->head->arestasSaida);
-                else
-                        n = insere_lista(ar, ar->head->arestasEntrada);
         }
-       
+        
+        n = insere_lista(ar, ar->tail->arestasSaida);
+        ar->tail->grauSaida++;
+        if (dir)
+        {
+                ar->head->grauEntrada++;
+                n = insere_lista(ar, ar->head->arestasEntrada);
+        }
+        else
+        {
+                n = insere_lista(ar, ar->head->arestasSaida);
+                ar->tail->grauSaida++;
+        }
+                
         ar->peso = agget(a, (char *)"peso");
         if (ar->peso == NULL)
                 ar->peso = "0\0";
@@ -211,25 +216,26 @@ static Agraph_t * guardaGrafo(Agraph_t *g, grafo new)
         new->numArestas         = agnedges(g);
         new->numVertices        = agnnodes(g);
         
-        //Vamos guardar as arestas
+        //V'amos guardar as arestas
         for (Agnode_t *v=agfstnode(g); v; v=agnxtnode(g,v)) 
         {
                 //Busca vértice na lista, se não existir, aloca novo grafo
                 if (buscaVertice(agnameof(v), new) == NULL)
                         insereNovoVertice(v, new);
+                
+                new->direcionado        = agisdirected(g);
                      
-                if (new->direcionado)
+                if (direcionado(new))
                 {   
                         for (Agedge_t *a=agfstout(g,v); a; a=agnxtout(g,a))
-                                insereNovaAresta(v, a, new);
+                                if (buscaAresta(agnameof(aghead(a)), agnameof(agtail(a)), new) == NULL)
+                                        insereNovaAresta(v, a, new, direcionado(new));
                 }
                 else
                 {                
                         for (Agedge_t *a=agfstedge(g,v); a; a=agnxtedge(g,a,v))
-                        {
                                 if (buscaAresta(agnameof(aghead(a)), agnameof(agtail(a)), new) == NULL)
-                                        insereNovaAresta(v, a, new);
-                        }
+                                        insereNovaAresta(v, a, new, direcionado(new));
                 }
         }
         
