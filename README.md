@@ -4,6 +4,7 @@ Trabalho de Implementação 1
 Alunas
 ------
 FLAVIENE SCHEIDT DE CRISTO    - GRR 20101915
+
 JAQUELINE FERNANDA BORGES NANDE - GRR GRR20102604 
 
 Estrutura de Dados
@@ -17,7 +18,7 @@ Estrutura de Dados
     que chegam nele. No caso de grafos não direcionados, todas as arestas são
     guardadas na lista de arestas de saída, e o grau é o grau de saída
 - A estrutura "aresta" possui um apontador para o vértice "head" da aresta e o
-    outro para o vértice "tail"da aresta, além de seu peso, guardado como char *
+    outro para o vértice "tail" da aresta, além de seu peso, guardado como char *
 
 
 Bugs e Warnings
