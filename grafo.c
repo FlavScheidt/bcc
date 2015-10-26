@@ -5,67 +5,96 @@
 #include "lista.h"
 #include "grafo.h"
 
-struct grafo 
+//------------------------------------------------------------------------------
+// (apontador para) estrutura de dados para representar um grafo
+// 
+// o grafo pode ser
+// - direcionado ou não
+// - com pesos nas arestas ou não
+// 
+// além dos vértices e arestas, o grafo tem um nome, que é uma "string"
+// 
+// num grafo com pesos nas arestas todas as arestas tem peso, que é um long int
+// 
+// o peso default de uma aresta é 0
+
+struct grafo
 {
-	char nome [24];
-	lista listavertice;
-	unsigned int numvertice;
-	unsigned int numArestas;
-	int direcionado;
-	int ponderado;
+        char nome[32];
+        unsigned int numArestas;
+        unsigned int numVertices;
+        int ponderado;
+        int direcionado;
+        lista listaArestas;
+        lista listaVertices;
+};
+
+struct aresta
+{
+        vertice tail;
+        vertice head;
+        char * peso;
 };
 
 struct vertice
 {
-        char nome [24];
-        lista listaArestasEntrada;
-        lista listaArestasSaida;
+        char nome[32];
         unsigned int grauEntrada;
         unsigned int grauSaida;
+        lista arestasEntrada;
+        lista arestasSaida;
 };
 
-struct arestas
-{
-        unsigned int peso;
-        vertice ponta1;
-        vertice ponta2;
-};
+//------------------------------------------------------------------------------
+// devolve o nome do grafo g
 
 char *nome_grafo(grafo g)
 {
-	return g->nome;
+        return g->nome;
 }
+
+//------------------------------------------------------------------------------
+// devolve 1, se g é direcionado, ou
+//         0, caso contrário
 
 int direcionado(grafo g)
 {
-	return g->direcionado;
+        return g->direcionado;
 }
+
+//------------------------------------------------------------------------------
+// devolve 1, se g tem pesos nas arestas/arcos,
+//      ou 0, caso contrário
 
 int ponderado(grafo g)
 {
-	return g->ponderado;
+       return g->ponderado;
 }
+
+//------------------------------------------------------------------------------
+// devolve o número de vértices do grafo g
 
 unsigned int n_vertices(grafo g)
 {
-	return g->numvertice;
+        return g->numVertices;
 }
+
+//------------------------------------------------------------------------------
+// devolve o número de arestas/arcos do grafo g
 
 unsigned int n_arestas(grafo g)
 {
-	return g->numArestas;
+        return g->numArestas;
 }
+
+//------------------------------------------------------------------------------
+// devolve o nome do vertice v
 
 char *nome_vertice(vertice v)
 {
-
         return v->nome;
 }
 
-//Busca vértice
-vertice * buscaVertice(char * nome)
-{
-}
 //------------------------------------------------------------------------------
 // lê um grafo no formato dot de input, usando as rotinas de libcgraph
 // 
@@ -83,68 +112,147 @@ vertice * buscaVertice(char * nome)
 // devolve o grafo lido ou
 //         NULL em caso de erro 
 
-static Agraph_t * armazena_grafo(Agraph_t *g)
+vertice buscaVertice(char * nome, grafo g)
 {
-        Agnode_t *v;
-        Agedge_t *a;
+        for (no n=primeiro_no(g->listaVertices); n; n=proximo_no(n))
+        {       
+                if (strcmp(nome, nome_vertice(conteudo(n))) == 0)
+                        return conteudo(n);
+        }
+        return NULL;
+}
+
+aresta buscaAresta(char * head, char * tail, grafo g)
+{
+        aresta ar;
         
-        no              n;
-        void            *aux;
-        grafo           new     = malloc(sizeof(grafo));
-        vertice         vt      = malloc(sizeof(vertice));
-        arestas         ar      = malloc(sizeof(arestas));
-        
-        //cria novo grafo          
-        strcpy(new->nome, agnameof(g));
-        new->direcionado         = agisdirected(g);
-        new->numvertice          = agnnodes(g);
-        new->numArestas          = agnedges(g);
-        new->listavertice        = constroi_lista();
-        
-        printf("Grafo %s criado\n", new->nome);fflush(stdout);
-        
-        //Insere vértices
-        //Necessário colocar antes os vértices, pois a lista de adjacências é uma lista de ponteiros
-         for (v=agfstnode(g); v; v=agnxtnode(g,v))
+        if (direcionado(g))
         {
-                
-                strcpy(vt->nome, agnameof(v));
-                
-                printf("Vertice: %s \n", vt->nome);fflush(stdout);
-                
-                //Cria listas de arestas
-                vt->listaArestasSaida = constroi_lista();
-                if (new->direcionado == 1)
-                        vt->listaArestasEntrada = constroi_lista();
-                else
-                        vt->listaArestasEntrada = NULL;
-                              
-                //Insere vértice na lista
-                n = insere_lista(vt, new->listavertice);
+                fprintf(stdout, "busca %s -> %s \n", tail, head);fflush(stdout);
+                for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
+                {       
+                        ar = conteudo(n); 
+                        fprintf(stdout, "achou %s -> %s \n", nome_vertice(ar->tail), nome_vertice(ar->head));fflush(stdout);
+                        if (strcmp(head, nome_vertice(ar->head)) == 0 && strcmp(tail, nome_vertice(ar->tail)) == 0)     
+                                return ar;
+                }
+        }
+        else
+        {
+                for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
+                {       
+                        ar = conteudo(n); 
+                        if ((strcmp(head, nome_vertice(ar->head)) == 0 && strcmp(tail, nome_vertice(ar->tail)) == 0) ||
+                           (strcmp(head, nome_vertice(ar->tail)) == 0 && strcmp(tail, nome_vertice(ar->head)) == 0))     
+                                return ar;
+                }
         }
         
-        //Insere arestas
-        //vtAux = primeiro_no(new->listavertice)->conteudo;
-        for (int i=0; i<new->numvertice; ++i)
+        return NULL;
+}
+
+void insereNovoVertice(Agnode_t * v, grafo new)
+{
+        vertice vt = malloc(sizeof(vertice));
+        
+        strcpy(vt->nome, agnameof(v));
+        vt->grauEntrada = 0;
+        vt->grauSaida   = 0;
+        vt->arestasEntrada       = constroi_lista();
+        vt->arestasSaida         = constroi_lista();
+        
+        no n = insere_lista(vt, new->listaVertices);
+        vt = conteudo(n);
+}
+
+void insereNovaAresta(Agnode_t * v, Agedge_t * a, grafo new, int dir)
+{      
+        aresta ar = malloc(sizeof(aresta));
+        no n;
+       
+        ar->head = buscaVertice(agnameof(aghead(a)), new);
+        ar->tail = buscaVertice(agnameof(agtail(a)), new);
+        if (ar->head == NULL)
         {
+                insereNovoVertice(aghead(a), new);
+                ar->head = conteudo(primeiro_no(new->listaVertices));
+        }
+        if (ar->tail == NULL)
+        {
+                insereNovoVertice(agtail(a), new);
+                ar->tail = conteudo(primeiro_no(new->listaVertices));
+        }
+        
+        n = insere_lista(ar, ar->tail->arestasSaida);
+        ar->tail->grauSaida++;
+        if (dir)
+        {
+                ar->head->grauEntrada++;
+                n = insere_lista(ar, ar->head->arestasEntrada);
+        }
+        else
+        {
+                n = insere_lista(ar, ar->head->arestasSaida);
+                ar->tail->grauSaida++;
+        }
                 
-        }        
+        ar->peso = agget(a, (char *)"peso");
+        if (ar->peso == NULL)
+                ar->peso = "0\0";
+       
+       n = insere_lista(ar, new->listaArestas);
+}
 
 
+static Agraph_t * guardaGrafo(Agraph_t *g, grafo new)
+{
+        aresta ar;
+        
+        new->listaArestas       = constroi_lista();
+        new->listaVertices      = constroi_lista();
+        strcpy(new->nome, agnameof(g));
+        new->direcionado        = agisdirected(g);
+        new->ponderado          = 0; //Só saberemos com certeza quando iniciarmos a importação
+        new->numArestas         = agnedges(g);
+        new->numVertices        = agnnodes(g);
+        
+        //V'amos guardar as arestas
+        for (Agnode_t *v=agfstnode(g); v; v=agnxtnode(g,v)) 
+        {
+                //Busca vértice na lista, se não existir, aloca novo grafo
+                if (buscaVertice(agnameof(v), new) == NULL)
+                        insereNovoVertice(v, new);
+                
+                new->direcionado        = agisdirected(g);
+                     
+                if (direcionado(new))
+                {   
+                        for (Agedge_t *a=agfstout(g,v); a; a=agnxtout(g,a))
+                                if (buscaAresta(agnameof(aghead(a)), agnameof(agtail(a)), new) == NULL)
+                                        insereNovaAresta(v, a, new, direcionado(new));
+                }
+                else
+                {                
+                        for (Agedge_t *a=agfstedge(g,v); a; a=agnxtedge(g,a,v))
+                                if (buscaAresta(agnameof(aghead(a)), agnameof(agtail(a)), new) == NULL)
+                                        insereNovaAresta(v, a, new, direcionado(new));
+                }
+        }
+        
+        return g;
 }
 
 grafo le_grafo(FILE *input)
 {
-        Agraph_t *g = agread(input, NULL);
-        
-          printf("Grafo %s carregado\n", agnameof(g));fflush(stdout);
-        
+        Agraph_t *g = agread(stdin, NULL);
+        grafo new = malloc(sizeof(grafo));
+
         if ( !g )
                 return NULL;
-      
-        agclose(armazena_grafo(g));
+
+        agclose(guardaGrafo(g, new));
         
-        return &g;
+        return new;
 }
 
 //------------------------------------------------------------------------------
@@ -158,14 +266,18 @@ grafo le_grafo(FILE *input)
 
 int destroi_grafo(void *g)
 {
+//        if (!destroi_lista(g, 1))
+//                return 0
+        
+//        return 1;
 }
 
 //------------------------------------------------------------------------------
 // escreve o grafo g em output usando o formato dot, de forma que
 // 
-// 1-> todos os vértices são escritos antes de todas as arestas/arcos 
+// 1. todos os vértices são escritos antes de todas as arestas/arcos 
 // 
-// 2-> se uma aresta tem peso, este deve ser escrito como um atributo 
+// 2. se uma aresta tem peso, este deve ser escrito como um atributo 
 //    de nome "peso"
 //
 // devolve o grafo escrito ou
@@ -173,33 +285,63 @@ int destroi_grafo(void *g)
 
 grafo escreve_grafo(FILE *output, grafo g)
 {
+        char dir[3];
+        aresta ar;
+        
+        dir[0] = '-';
+        dir[1] = g->direcionado ? '>' : '-';
+        dir[2] = '\0';
+
+        fprintf(output, "strict graph %s {\n", nome_grafo(g));fflush(output);
+        for (no n=primeiro_no(g->listaArestas); n; n=proximo_no(n))
+        {  
+                ar = conteudo(n);
+                fprintf(output, "%s %s %s [peso=%s]\n", nome_vertice(ar->tail), dir, nome_vertice(ar->head), ar->peso);fflush(output);
+        }
+        fprintf(output, "}\n");fflush(output);
+        
+        return g;
 }
 
-
+//------------------------------------------------------------------------------
+// devolve a vizinhança do vértice v
 lista vizinhanca(vertice v)
 {
-        return v->listaArestasSaida;
+        return v->arestasSaida;
 }
+//------------------------------------------------------------------------------
+// devolve a vizinhança de entrada do vértice v
 
 lista vizinhanca_entrada(vertice v)
 {
-        return v->listaArestasEntrada;       
+        return v->arestasEntrada;
 }
+
+//------------------------------------------------------------------------------
+// devolve a vizinhança de saída do vértice v
 
 lista vizinhanca_saida(vertice v)
 {
-        return v->listaArestasSaida;
+        return v->arestasSaida;
 }
+//------------------------------------------------------------------------------
+// devolve o grau do vértice v
 
 unsigned int grau(vertice v)
 {
-        return v->grauSaida;
+        return (v->grauEntrada + v->grauSaida);
 }
+
+//------------------------------------------------------------------------------
+// devolve o grau de entrada do vértice v
 
 unsigned int grau_entrada(vertice v)
 {
         return v->grauEntrada;
 }
+
+//------------------------------------------------------------------------------
+// devolve o grau se saída do vértice v
 
 unsigned int grau_saida(vertice v)
 {

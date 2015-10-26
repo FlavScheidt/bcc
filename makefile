@@ -1,7 +1,7 @@
 CFLAGS  = -std=c99 \
 	  -pipe \
 	  -ggdb3 -Wstrict-overflow=5 -fstack-protector-all \
-          -W -Wall -Wextra \
+          #-W -Wall -Wextra \
 	  -Wbad-function-cast \
 	  -Wcast-align \
 	  -Wcast-qual \

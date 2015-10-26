@@ -1,7 +1,13 @@
 #ifndef _GRAFO_H
 #define _GRAFO_H
 
+#include <malloc.h>
+#include <stdio.h>
+#include <string.h>
+#include <graphviz/cgraph.h>
 #include "lista.h"
+#include "grafo.h"
+
 
 //------------------------------------------------------------------------------
 // (apontador para) estrutura de dados para representar um grafo
@@ -18,7 +24,7 @@
 
 typedef struct grafo *grafo;
 
-typedef struct arestas *arestas;
+typedef struct aresta *aresta;
 
 //------------------------------------------------------------------------------
 // devolve o nome do grafo g
@@ -130,5 +136,12 @@ unsigned int grau_entrada(vertice v);
 // devolve o grau se saída do vértice v
 
 unsigned int grau_saida(vertice v);
+
+//--------------------FUNÇÕES AUXILIARES----------------------------------------
+static Agraph_t * armazena_grafo(Agraph_t *g, grafo new);
+void insereVertice(Agraph_t *g, Agnode_t *v, grafo new);
+void guarda_arestas(Agraph_t *g, grafo new, Agnode_t *v);
+void insereAresta(Agedge_t *a, Agraph_t *g, Agnode_t *v, grafo new);
+vertice buscaVertice(char * nome, grafo new);
 
 #endif
