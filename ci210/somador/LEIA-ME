@@ -1,0 +1,50 @@
+CI210 - 2012-1
+
+
+O objetivo deste laboratório é estudar a modelagem de temporização com VHDL
+e o projeto de somadores com cadeia de adiantamento de vai-um.
+
+O arquivo adder.vhd contém vários modelos de somadores de 16 bits.
+
+
+O primeiro modelo (adderFuncional) é um modelo funcional do somador de 16
+bits, sem informação de estrutura e nem de temporização.
+
+
+O modelo adderSimples é um modelo estrutural do somador composto por 16
+instâncias do somador completo e sem cadeia de adiantamento de vai um.
+Este modelo contém informação aproximada da temporização do circuito.
+
+
+O modelo adderAdianta4 estende o modelo adderSimples com a adição de
+cadeias de adiantamento de vai-um de 4 em 4 bits.
+
+
+O modelo adderAdianta16 estende o modelo adderAdianta4 com a adição de
+uma cadeia de adiantamento de vai-um de 16 bits.
+
+
+Estude o código destes modelos até que entenda as diferenças entre eles.
+Isso feito, execute
+
+./run.sh 1 &
+
+para ver o diagrama de tempos de 3 somadores: os sinais no topo são do
+somador sem adiantamento de vai-um, ao centro são os sinais do somador com
+adiantamento de 4 em 4 bits, e embaixo os sinaos do somador com
+adiantamento de 4 em 4 e de 16 bits.
+
+
+Sua tarefa é acrescentar casos de teste ao arquivo tb_adder.vhd para
+verificar a corretude dos modelos.  Acrescente tantas tuplas quantas forem
+necessárias ao vetor test_vectors para que se possa ter um mínimo de
+confiança no projeto.  Os três modelos contém erros.
+
+
+Uma vez corrigidos os erros, compare o desempenho dos três somadores e
+compute o ganho de desempenho dos somadores com adiantamento com relação ao
+somador sem adiantamento.
+
+
+--x--
+Roberto A Hexsel, 21mar2012.

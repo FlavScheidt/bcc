@@ -1,0 +1,74 @@
+-------------------------------------------------------------
+-------------------------------------------------------------
+CPU type:	Intel Core Westmere processor 
+CPU clock:	2.80 GHz 
+-------------------------------------------------------------
+Measuring group FLOPS_DP
+
+=====================
+Region: Residuo 
+=====================
++-------------------+-----------+
+|    Region Info    |  core 0   |
++-------------------+-----------+
+| RDTSC Runtime [s] | 0.0401372 |
+|    call count     |    10     |
++-------------------+-----------+
++--------------------------------------+-------------+
+|                Event                 |   core 0    |
++--------------------------------------+-------------+
+|          INSTR_RETIRED_ANY           | 1.68115e+08 |
+|        CPU_CLK_UNHALTED_CORE         | 1.12289e+08 |
+|         CPU_CLK_UNHALTED_REF         | 1.12291e+08 |
+|    FP_COMP_OPS_EXE_SSE_FP_PACKED     |      0      |
+|    FP_COMP_OPS_EXE_SSE_FP_SCALAR     | 9.40621e+07 |
+| FP_COMP_OPS_EXE_SSE_SINGLE_PRECISION |      0      |
+| FP_COMP_OPS_EXE_SSE_DOUBLE_PRECISION | 9.40621e+07 |
++--------------------------------------+-------------+
++----------------------+-----------+
+|        Metric        |  core 0   |
++----------------------+-----------+
+| Runtime (RDTSC) [s]  | 0.0401372 |
+| Runtime unhalted [s] | 0.040101  |
+|     Clock [MHz]      |  2800.11  |
+|         CPI          | 0.667928  |
+|     DP MFlops/s      |  2343.52  |
+|    Packed MUOPS/s    |     0     |
+|    Scalar MUOPS/s    |  2343.52  |
+|      SP MUOPS/s      |     0     |
+|      DP MUOPS/s      |  2343.52  |
++----------------------+-----------+
+
+=====================
+Region: GS 
+=====================
++-------------------+---------+
+|    Region Info    | core 0  |
++-------------------+---------+
+| RDTSC Runtime [s] | 1.69915 |
+|    call count     |    1    |
++-------------------+---------+
++--------------------------------------+-------------+
+|                Event                 |   core 0    |
++--------------------------------------+-------------+
+|          INSTR_RETIRED_ANY           | 5.48168e+09 |
+|        CPU_CLK_UNHALTED_CORE         | 4.49618e+09 |
+|         CPU_CLK_UNHALTED_REF         | 4.62311e+09 |
+|    FP_COMP_OPS_EXE_SSE_FP_PACKED     |      0      |
+|    FP_COMP_OPS_EXE_SSE_FP_SCALAR     | 1.87248e+09 |
+| FP_COMP_OPS_EXE_SSE_SINGLE_PRECISION |      0      |
+| FP_COMP_OPS_EXE_SSE_DOUBLE_PRECISION | 1.87248e+09 |
++--------------------------------------+-------------+
++----------------------+----------+
+|        Metric        |  core 0  |
++----------------------+----------+
+| Runtime (RDTSC) [s]  | 1.69915  |
+| Runtime unhalted [s] | 1.60569  |
+|     Clock [MHz]      | 2723.28  |
+|         CPI          | 0.820218 |
+|     DP MFlops/s      | 1102.01  |
+|    Packed MUOPS/s    |    0     |
+|    Scalar MUOPS/s    | 1102.01  |
+|      SP MUOPS/s      |    0     |
+|      DP MUOPS/s      | 1102.01  |
++----------------------+----------+

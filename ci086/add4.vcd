@@ -1,0 +1,75 @@
+$date
+  Thu Oct 21 14:30:14 2010
+$end
+$version
+  GHDL v0
+$end
+$timescale
+  1 fs
+$end
+$var reg 4 ! a[3:0] $end
+$var reg 4 " b[3:0] $end
+$var reg 4 # ans[3:0] $end
+$var reg 1 $ cout $end
+$var reg 1 % c0 $end
+$var reg 1 & c1 $end
+$var reg 1 ' c2 $end
+$var reg 1 ( c3 $end
+$scope module b_adder0 $end
+$var reg 1 ) a $end
+$var reg 1 * b $end
+$var reg 1 + cin $end
+$var reg 1 , sum $end
+$var reg 1 - cout $end
+$upscope $end
+$scope module b_adder1 $end
+$var reg 1 . a $end
+$var reg 1 / b $end
+$var reg 1 0 cin $end
+$var reg 1 1 sum $end
+$var reg 1 2 cout $end
+$upscope $end
+$scope module b_adder2 $end
+$var reg 1 3 a $end
+$var reg 1 4 b $end
+$var reg 1 5 cin $end
+$var reg 1 6 sum $end
+$var reg 1 7 cout $end
+$upscope $end
+$scope module b_adder3 $end
+$var reg 1 8 a $end
+$var reg 1 9 b $end
+$var reg 1 : cin $end
+$var reg 1 ; sum $end
+$var reg 1 < cout $end
+$upscope $end
+$enddefinitions $end
+#0
+bUUUU !
+bUUUU "
+bUUUU #
+U$
+0%
+U&
+U'
+U(
+U)
+U*
+0+
+U,
+U-
+U.
+U/
+U0
+U1
+U2
+U3
+U4
+U5
+U6
+U7
+U8
+U9
+U:
+U;
+U<

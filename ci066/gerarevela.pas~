@@ -1,0 +1,91 @@
+program testaimpresao;
+const 	tam= 40;
+	bombas= 35;
+type	m1=array[0..40, 0..40] of char;
+	m2=array[0..40, 0..40] of integer;
+var	campo: m1;
+	posicoes: m2;
+
+(* Gera campo *)
+procedure geracampo (var  posicoes: m2; campo: m1);
+var	k, x,y: integer;
+	procedure inicializa (var m: m2);
+	var	x,y: integer;
+	Begin
+		for x:=1 to tam do
+		Begin
+			for y:=1 to tam do
+				m[x,y]:=0;
+		End;
+	End;
+
+Begin
+	(* Inicializa Matrizes  *)
+	(* Troca 0 por # em campo  *)
+	for x:=1 to tam do
+	Begin
+		for y:=1 to tam do
+			campo[x,y]:= '#';
+	End;
+	inicializa(posicoes, tam);
+
+	(* Sorteia Posição das Bombas *)
+	for k:=1 to bombas do
+	Begin
+		x:= random (tam);
+		y:= random (tam);
+	(* Verifica se há bomba na posição, se não, coloca *)
+		if posicoes[x,y]=0 then
+		Begin
+			posicoes[x,y]:= 9;
+		(* Calcula numeros*)
+			for x:=1 to tam do
+			Begin
+				for y:=1 to tam do
+				Begin
+					if (posicoes[x,y]= 9) then
+					Begin
+						posicoes[x-1, y-1]:= posicoes[x-1, y-1]+1;
+						posicoes[x-1, y]:= posicoes[x-1, y]+1;
+						posicoes[x-1, y+1]:= posicoes[x-1,y+1]+1;
+						posicoes[x, y-1]:= posicoes[x, y-1]+1;
+						posicoes[x, y+1]:= posicoes[x, y+1]+1;
+						posicoes[x+1, y-1]:= posicoes[x+1, y-1]+1;
+						posicoes[x+1, y]:= posicoes[x+1,y]+1;
+						posicoes[x+1, y+1]:= posicoes[x+1, y+1]+1;
+					End;
+				End;
+			End;
+		End;
+	End;
+	
+End;
+
+(* Imprimir *)
+procedure imprime(var campo: m1);
+var 	i,j,k: integer;
+Begin
+	write (' ');
+	for k:=1 to tam do
+		write(k,' ');
+	writeln;
+	write('+');
+	for k:=1 to tam do
+		write('--');
+	write('+');
+	writeln;
+	for i:=1 to tam do
+	Begin
+		write(i,' |');
+		for j:=1 to tam do
+			write(campo[i,j],' ');
+		write('|');
+		writeln;
+	End;
+End;
+
+(* Programa Principal *)
+Begin
+	geracampo(posicoes,campo);
+	imprime(campo);
+End.

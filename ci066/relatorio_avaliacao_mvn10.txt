@@ -1,0 +1,48 @@
+# Avaliacao de trabalhos - Trabalho 2 - gerador e resolvedor de campo minado
+#
+# Preencha a ficha de avaliacao abaixo
+#
+# Dados seus (avaliador)
+#
+Flaviene Scheidt de Cristo
+FSC10
+#
+# Dados do programador (trabalho que você está avaliando)
+#
+Matheus Veshagem Nascimento
+MVN10
+#
+#
+# Entregou os dois programas (gerador e resolver)? Sim/Não, qual?
+Sim
+# Os programas recebem parâmetros e estes são verificados (consistência)?
+# Comente/explique
+O programa gerador verifica os valores na primeira entrada, mas na segunda, se o valor de bombas especificados for maior do que o permitido, o programa entra em loop infinito. O resolvedor recebe o nome do arquivo a ser utilizado sem maiores problemas.
+# Os programas estão bem comentados e implementados? (explique/justifique)
+Os comentários são poucos, mas bem posicionados. Os nomes das funções e variáveis as vezes podem ser confusas, mas, no geral, o programa é fácil de ser entendido e relativamente organizado.
+# Os programas fazem o que foi solicitado na especificação? (explique)
+O programa imprime corretamente o campo, inclusive com cores, mas entra em loop infinito e não joga corretamente.
+O gerador funciona como deve, embora seja preciso redirecionar a saída para um arquivo, sem que o próprio programa o faça.
+# Explique brevemente o funcionamento dos programas com suas principais
+# rotinas
+Primeiramente, verifica se há casos óbivios para se colocar bombas, casos onde todos os campos em volta estão abertos. Depois verifica alguns casos particulares e marca bombas se existir algum campo igual a 8. Analiza mais alguns casos óbvios para abertura e marcação de bombas.
+# O programa resolvedor possui regras claras? Como funcionam? (explique)
+As regras são claras, funcionam por eliminação, mas não há critério de chute.
+# teste os programas com diferentes parametros (campos) e verifique
+# funcionamento. Comente/explique os testes
+Infelizmente, o programa entra em loop infinito depois da primeira jogada.
+# Existem casos de configuração de campo minado que o programa resolvedor
+# não resolve? Explique e comente os exemplo
+O loop não permite descobrir, mas pelo código pode-se perceber que o algoritmo prevê muitos casos, alguns um pouco mais complexos.
+# Pontos Positivos (explique/justifique)
+Código legível, pensamento organizado e verificações para detectar vitória ou derrota. Resolveria muitos casos se não fosse pelo loop infinito.
+# Pontos Negativos (explique/justifique)
+O loop infinito é o principal problema com o resolvedor. Com o gerador, o problema reside no tratamento de erros e no direcionamento da saída.
+# Comparando este trabalho com o seu o que você pode comentar? Vantagens e
+# desvatagens (limitações/novidades/etc). Casos que o seu resolve e o dele(a)
+# não resolve ou vice-versa?!
+Ambos os programas apresentam problemas semelhantes quanto ao loop inifinito. Mas este programa faz uma verificação para detectar vitória, e cobre muito mais casos especificos.
+# Qual a sua avaliação final? Sugestões/comentários gerais.
+Seria um bom programa se não existisse o loop. Imprime de maneira agradável o campo, e o raciocínio parece organizado e faz sentido, sem falar na legibilidade do código e na quantidade de casos específicos que o programa conseque lidar.
+# Nota Geral de 0 a 100
+70

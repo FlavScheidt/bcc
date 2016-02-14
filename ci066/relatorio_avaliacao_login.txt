@@ -1,0 +1,47 @@
+# Avaliacao de trabalhos - Trabalho 2 - gerador e resolvedor de campo minado
+#
+# Preencha a ficha de avaliacao abaixo
+#
+# Dados seus (avaliador)
+#
+Nome completo
+Login
+#
+# Dados do programador (trabalho que você está avaliando)
+#
+Nome completo
+Login
+#
+#
+# Entregou os dois programas (gerador e resolver)? Sim/Não, qual?
+
+# Os programas recebem parâmetros e estes são verificados (consistência)?
+# Comente/explique
+
+# Os programas estão bem comentados e implementados? (explique/justifique)
+
+# Os programas fazem o que foi solicitado na especificação? (explique)
+
+# Explique brevemente o funcionamento dos programas com suas principais
+# rotinas
+
+# O programa resolvedor possui regras claras? Como funcionam? (explique)
+
+# teste os programas com diferentes parametros (campos) e verifique o
+# funcionamento. Comente/explique os testes
+
+# Existem casos de configuração de campo minado que o programa resolvedor
+# não resolve? Explique e comente os exemplos
+
+# Pontos Positivos (explique/justifique)
+
+# Pontos Negativos (explique/justifique)
+
+# Comparando este trabalho com o seu o que você pode comentar? Vantagens e
+# desvatagens (limitações/novidades/etc). Casos que o seu resolve e o dele(a)
+# não resolve ou vice-versa?!
+
+# Qual a sua avaliação final? Sugestões/comentários gerais.
+
+# Nota Geral de 0 a 100
+

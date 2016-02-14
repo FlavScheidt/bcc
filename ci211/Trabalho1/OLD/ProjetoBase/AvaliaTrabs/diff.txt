@@ -1,0 +1,357 @@
+Usage: avaliaTrab.sh <arquivo executavel compilador
+Avaliação: Para os primeiros quatro erros, meio ponto por erro.
+Avaliação: Para os demais, um ponto por erro.
+Exemplo5 ... 2c2,5
+<      AMEM 5
+---
+>      AMEM 2
+>      AMEM 3
+>      DSVS R00
+> R00: NADA 
+11c14
+< R00: NADA 
+---
+> R01: NADA 
+15c18
+<      DSVF R01
+---
+>      DSVF R02
+28,29c31,32
+<      DSVS R00
+< R01: NADA 
+---
+>      DSVS R01
+> R02: NADA 
+Exemplo7.1 ... 2a3,4
+>      DSVS R00
+> R00: NADA 
+9c11
+< R00: NADA 
+---
+> R01: NADA 
+13c15
+<      DSVF R01
+---
+>      DSVF R02
+28,29c30,31
+<      DSVS R00
+< R01: NADA 
+---
+>      DSVS R01
+> R02: NADA 
+Exemplo7.2 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+18c19
+<      DSVF R02
+---
+>      DSVF R04
+24c25
+< R02: NADA 
+---
+> R04: NADA 
+39c40
+< R04: NADA 
+---
+> R05: NADA 
+43c44
+<      DSVF R05
+---
+>      DSVF R06
+51,52c52,53
+<      DSVS R04
+< R05: NADA 
+---
+>      DSVS R05
+> R06: NADA 
+Exemplo7.3 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+Exemplo7.4 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+21,24c22
+< R00: NADA 
+<      DSVS R02
+< R03: NADA 
+<      ENPR 1
+---
+> R03: ENPR 1 
+27,28c25
+< R05: NADA 
+<      ENPR 2
+---
+> R05: ENPR 2 
+29a27,28
+>      DSVS R06
+> R06: NADA 
+55c54
+< R02: NADA 
+---
+> R00: NADA 
+Exemplo7.5 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+10c11
+<      DSVF R02
+---
+>      DSVF R04
+16c17
+< R02: NADA 
+---
+> R04: NADA 
+Exemplo8.10 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+10c11
+<      DSVF R02
+---
+>      DSVF R04
+16c17
+< R02: NADA 
+---
+> R04: NADA 
+Exemplo8.12 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+8,9c7,9
+< R05: NADA 
+<      ENPR 2
+---
+> R05: ENPR 2 
+>      DSVS R06
+> R06: NADA 
+13c13
+<      DSVF R06
+---
+>      DSVF R08
+16c16
+< R06: NADA 
+---
+> R08: NADA 
+20c20
+<      DSVF R08
+---
+>      DSVF R10
+24c24
+< R08: NADA 
+---
+> R10: NADA 
+37d36
+<      DMEM 0
+40,41c39
+< R02: NADA 
+<      ENRT 1, 1
+---
+> R02: ENRT 1 1 
+51c49
+<      DSVF R10
+---
+>      DSVF R12
+54c52
+< R10: NADA 
+---
+> R12: NADA 
+56,57c54
+< R03: NADA 
+<      ENRT 1, 1
+---
+> R03: ENRT 1 1 
+64,67c61
+< R00: NADA 
+<      DSVS R12
+< R13: NADA 
+<      ENPR 1
+---
+> R13: ENPR 1 
+69,70c63
+< R15: NADA 
+<      ENPR 2
+---
+> R15: ENPR 2 
+71a65,66
+>      DSVS R16
+> R16: NADA 
+82d76
+<      DMEM 0
+84c78
+< R12: NADA 
+---
+> R00: NADA 
+Exemplo8.5 ... 2c2,5
+<      AMEM 5
+---
+>      AMEM 2
+>      AMEM 3
+>      DSVS R00
+> R00: NADA 
+11c14
+< R00: NADA 
+---
+> R01: NADA 
+15c18
+<      DSVF R01
+---
+>      DSVF R02
+28,29c31,32
+<      DSVS R00
+< R01: NADA 
+---
+>      DSVS R01
+> R02: NADA 
+Exemplo8.6 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+16c17
+<      DSVF R02
+---
+>      DSVF R04
+19c20
+< R02: NADA 
+---
+> R04: NADA 
+Exemplo8.7 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+16c17
+<      DSVF R02
+---
+>      DSVF R04
+19c20
+< R02: NADA 
+---
+> R04: NADA 
+29,32c30
+< R00: NADA 
+<      DSVS R04
+< R05: NADA 
+<      ENPR 1
+---
+> R05: ENPR 1 
+33a32,33
+>      DSVS R06
+> R06: NADA 
+45c45
+<      DSVF R06
+---
+>      DSVF R08
+49c49
+< R06: NADA 
+---
+> R08: NADA 
+57c57
+<      DSVF R08
+---
+>      DSVF R10
+60c60
+< R08: NADA 
+---
+> R10: NADA 
+70c70
+< R04: NADA 
+---
+> R00: NADA 
+Exemplo8.8 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+8,9c7
+< R03: NADA 
+<      ENPR 2
+---
+> R03: ENPR 2 
+10a9,10
+>      DSVS R04
+> R04: NADA 
+22c22
+<      DSVF R04
+---
+>      DSVF R06
+25c25
+< R04: NADA 
+---
+> R06: NADA 
+45c45
+<      DSVF R06
+---
+>      DSVF R08
+48c48
+< R06: NADA 
+---
+> R08: NADA 
+Exemplo8.9 ... 4,5c4
+< R01: NADA 
+<      ENPR 1
+---
+> R01: ENPR 1 
+6a6,7
+>      DSVS R02
+> R02: NADA 
+10c11
+<      DSVF R02
+---
+>      DSVF R04
+16c17
+< R02: NADA 
+---
+> R04: NADA 
+ExemploErro1 ... 2a3,4
+>      DSVS R00
+> R00: NADA 
+10d11
+<      ARMZ 0, 0
+ExemploErro2 ... 2a3,4
+>      DSVS R00
+> R00: NADA 
+8,17c10,11
+<      CRCT 1
+<      SOMA
+<      DSVF R00
+<      CRCT 1
+<      ARMZ 0, 0
+<      DSVS R01
+< R00: NADA 
+< R01: NADA 
+<      DMEM 2
+<      PARA
+---
+>      CRVL 0, 1
+>      CMMA

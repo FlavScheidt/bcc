@@ -1,0 +1,35 @@
+/************************************************
+
+	Nome: 	Flaviene S de Cristo (fsc10)
+		Veridiana G V Paraski (vgp09)
+	
+	GRR:	20101915
+		2009
+	
+	Funções implementadas:
+		- Load/Store Half Word
+		- Multiplicação em ponto flutuante
+
+************************************************/
+
+/***********************
+	Load/Store Half Word
+***********************/
+
+	Para que o formato das intruções de memória não fossem modifcados,
+as funções de I/O INP e OUT foram retiradas e as novas funções inseridas
+no lugar.
+	Ambas as funções carregam apenas os últimos quatro bits da pala-
+vra e extendem o sinal.
+
+/***** pP-defs.vhd *****/
+
+	Nesse arquivo, as modificações feitas encontram-se nas linhas 46 e 47,
+onde as funções de I/O foram trocadas pelas funções de helf word.
+
+/***** pP_defs-body.vhd *****/
+
+	As modificações feitas encontram-se na linha 18, onde novamente as
+funções de I/O foram trocadas pelas de half word.
+
+

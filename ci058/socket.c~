@@ -1,0 +1,99 @@
+#include "socket.h"
+
+void SetConnection(int port)
+{
+        //STEP 1 - Criar o socket
+        sock = socket(AF_INET, SOCK_DGRAM, 0);
+        
+        if (sock < 0)
+        {
+                perror("ERRO: problemas na criação do socket\n");
+                exit(1);
+        }
+        
+        //STEP 2 - BIND -> configurações da conexão
+        struct sockaddr_in myaddr;
+
+        memset((char *)&myaddr, 0, sizeof(myaddr));
+        myaddr.sin_family = AF_INET;
+        
+        if (inet_aton("127.0.0.1", &myaddr.sin_addr) == 0)
+        {
+                fprintf(stderr, "ERRO: Problemas ao converter o endereço IP\n");
+                exit(1);
+        }
+        
+        myaddr.sin_port = htons(port);
+
+        if (bind(sock, (struct sockaddr *)myaddr, sizeof(myaddr)) < 0) 
+        {
+	        perror("ERRO: problemas para configurar a conexão\n");
+	        exit(1);
+	}
+}
+
+void SetRing(int maquina)
+{
+        //Máquina zero (para testes, essa máquina)
+        if (maquina == 0)
+                SetConnection(1915);       
+        //Máquina um (macalan)
+        else if (maquina == 1)
+                SetConnection(6131);
+}
+
+void Send()
+{
+        //Informações da máquina destino
+        struct hostent *hp;
+        //Nome da máquina destino
+        char * host = "macalan";
+        //Endereço da máquina destino
+        struct sockaddr_in servaddr;
+        
+        char *my_message = "this is a test message";
+
+        //Informações da máquina destino
+        memset((char*)&servaddr, 0, sizeof(servaddr));
+        servaddr.sin_family = AF_INET;
+        servaddr.sin_port = htons(6131);
+
+        //Procura o IP da máquina destino a partir do nome
+        hp = gethostbyname(host);
+        if (!hp) 
+        {
+	        fprintf(stderr, "ERRO: impossível obter o endereço de %s\n", host);
+	        exit(1);
+        }
+
+        //Preenche a estrutura com as informações do dentino
+        memcpy((void *)&servaddr.sin_addr, hp->h_addr_list[0], hp->h_length);
+
+        //Envia a mensagem
+        if (sendto(sock, my_message, strlen(my_message), 0, (struct sockaddr *)&servaddr, sizeof(servaddr)) < 0)
+	        perror("sendto failed");
+}
+
+void Get()
+{
+
+	struct sockaddr_in myaddr;      /* our address */
+        struct sockaddr_in remaddr;     /* remote address */
+        socklen_t addrlen = sizeof(remaddr);            /* length of addresses */
+        int recvlen;                    /* # bytes received */
+        unsigned char buf[BUFSIZE];     /* receive buffer */
+
+        /* now loop, receiving data and printing what we received */
+        while (1)
+        {
+                printf("waiting");
+                recvlen = recvfrom(sock, buf, BUFSIZE, 0, (struct sockaddr *)&remaddr, &addrlen);
+                printf("received %d bytes\n", recvlen);
+                if (recvlen > 0) 
+                {
+                        buf[recvlen] = 0;
+                        printf("received message: \"%s\"\n", buf);
+                        return;
+                }
+        }
+}

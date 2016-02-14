@@ -1,0 +1,30 @@
+## UFPR, BCC, ci212 2012-2 trabalho semestral, autor: Roberto Hexsel, 24jan
+
+
+run.sh -- O script run.sh compila e executa a simulação.  Se o script
+receber um argumento, o gtkwave é iniciado; sem argumento, ocorre somente a
+compilação.  ESTE ARQUIVO NÃO PODE SER ALTERADO.
+
+
+aux.vhd -- código VHDL com somadores, portas lógicas, registradores.
+ESTE ARQUIVO NÃO PODE SER ALTERADO.
+
+
+filtro.vhd -- seu código para o modelo do filtro deve ser inserido neste
+arquivo.
+
+
+packageWires.vhd -- código VHDL com definições para o testbench.
+ESTE ARQUIVO NÃO PODE SER ALTERADO.
+
+
+tb_filtro.vhd -- embrião do testbench do filtro.  O programa dispara a
+leitura da sequência de entrada para o filtro e imprime sua saída com
+ASSERTs. 
+
+v.sav -- configuração do gtkwave.
+
+
+entrada.txt, ruidosa.txt -- arquivos de entrada para os testes.
+Cada linha contém um elemento (unsigned de 0 a 4095), codificado em
+hexadecimal, sem prefixo.

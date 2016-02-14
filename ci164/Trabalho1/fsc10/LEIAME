@@ -1,0 +1,194 @@
+********************************************************************************
+        Flaviene Scheidt de Cristo
+        FSC10
+        GRR20101915
+********************************************************************************
+****************************************************************
+        Arquivos do Pacote
+****************************************************************
+Makefile        : compila o programa (all) e faz a limpeza (argumento clean)
+pdeSolver.c     : o programa em si, com suas funções e o programa principal
+pdeSolver.h     : contém as difinições dos cabeçalhos das funções e de constantes 
+                (no caso, apenas o PI, que não é mais definido na biblioteca
+                math.h)
+              
+****************************************************************
+        Compilação e execução
+****************************************************************
+- Para compilar digite o seguinte comando no diretório
+$> make
+ou
+$> make all
+
+- Para limpar os arquivos temporários e gerados pelo Mafile digite
+$> make clean
+        IMPORTANTE: o clean também remove arquivos .png e .jpg (usados para
+        plotar os gráficos com o gnuplot durante os testes do programa)
+        
+- Para executar digite:
+$> pdeSolver -nx <Nx> -ny <Ny> -i <maxIter> -m <gs | sor> -o arquivo_saida
+
+*****************************************************************
+        Funções
+*****************************************************************
+        timestamp       : Retorna a timestamp
+        ImprimePontos   : Imprime os pontos calculados no arquivo de saída
+                especificado nos parâmetros de entrada em um formato legível pelo
+                gnuplot segundo especificações. A ordem das colunas é x, y, z(u).
+                Ou seja, as duas primeiras colunas são os pontos x e y já conhecidos
+                e z representa os pontos computados com o método iterativo escolhido
+        CalculaResiduo  : Calcula a norma do resíduo para aquela iteração
+        CalculaB:       Calcula o vetor b (de resultados)
+        CalculaPontos   : Implementação dos métodos em si. Calcula o valor dos pontos
+                        de acordo com o método escolhido levando em consideração
+                        o número máximo de iterações especificado nos parâmetros
+        InicializaVetor: Iniciliza os valores do vetor em 0, exceto pela borda 
+                        superior, que tem seus valores calculados de acordo com
+                        a especificação.
+        CalculosIniciais: Calcula dos valores de hx, hy, w e o tamanho do vetor
+                        a ser alocado
+        ErrorExit       : Imprime o erro especificado em stderr e encerra o
+                        programa com o valor 1
+        LeParametros    : Lê e confere os parâmetros digitados na linha de comando
+                        se o parâmetro estiver incorreto, chamar ErrorExit(int)
+                        
+****************************************************************
+        Algoritmos e Estruturas de Dados
+****************************************************************
+VALORES DOS PONTOS DA MALHA
+
+- A malha é tratada como uma matriz, embora seja, na verdade o vetor x de resultados,
+  já que cada ponto representa uma equação. Tratamos o vetor deste modo pois
+  necessitamos dos valores de x e y da malha para calcular o índice dos pontos
+  que estão na proximidade, e porque algun trechos necessitam dos valores de x e y.
+  
+- A "matriz" dos pontos se inicia no ponto (0,0) e sendo percorrida por linhas. 
+  O y é iterado primeiro, pois este é quem dá o índice das linhas.
+
+- Os valores dos pontos da malha da função são guardados em um vetor, cujo valor
+  é dados por (nx+1)*(ny+1), sendo o +1, por conta das bordas 0. 
+  As bordas (mesmo as de valor 0) são guardadas também neste vetor, para diminuir
+  a quantidade de ifs dentro dos laços.
+
+- A iteração de x e y é feita com base em um inteiro, e os limites dos laços são
+  os valores de nx e ny. As coordenadas são calculadas a cada iteração, adicionando
+  hy e hy a cada uma. A escolha de uma variável inteira para a iteração se deu 
+  pelo fato de que, se iterarmos os valores de x e y adicionando hx e hy, podemos
+  não chegar aos limites de x e y (2 e 1, respectivamente) com o número correto
+  de pontos se nx e ny forem muito grandes, por se tratar de uma operação em ponto
+  flutuante.
+  
+MATRIZ DE COEFICIENTES
+
+- Sabendo o que os valores dos pontos da malha são na verdade o vetor x de resultados,
+  precisamos saber quem é a matriz A de coeficientes. Esta é uma matriz tridiagonal
+  que possui os valores do stencil do seguinte modo:
+  1/hx² (2/hx² + 2/hy² + k²) 1/hy²
+  Como esses valores são constantes, mudando apenas sua posição na matriz, não
+  há uma estrutura de dados especifica para eles, sendo calculados e guardados
+  em variáveis, e utilizado de acordo com a necessidade
+  
+VALOR DE f(x,y) 
+
+- Os valores de f(x,y) compreendem o vetor b (vetor de resultados). A estrutura 
+  de dados é um vetor de tamanho (nx+1)*(ny+1), que é o número de equações da 
+  matriz A (cada ponto da malha compreende uma equação). Temos aqui um possível
+  ponto de melhoria na segunda parte do trabalho, guardando o vetor b juntamente
+  com a matriz em um único vetor, ou se assegurando de que o vetor b não caia na
+  mesma linha da cache que as linhas de A.
+  
+- Os valores de f(x,y) são calculados separadamente, antes do início da primeira
+  iteração, pois seu valor não muda de acordo com a iteração.
+  
+RESÍDUO
+
+- Os resíduos de cada iteração ão guardados em um vetor que possui tamanho igual
+  ao número máximo de iterações, definido nos parâmetros iniciais da linha de 
+  comando. O fato de calcularmos a norma do vetor de resíduos permite que seus
+  valores possam ser guardados deste modo.
+ 
+- O vetor de resíduos não seria necessário se o resíduo fosse calculado e 
+  imediatamente impresso no arquivo, mas neste momento ainda não possuímos os 
+  valores das médias dos tempos, que deve ser impresso antes. Por simplicidade,
+  foi escolhido o método do vetor, e não da impressão direta.
+  
+TEMPOS
+
+- Os tempos médios dos métodos e do cálculo dos resíduos são calculados com base
+  em variáveis que servem como acumuladores. Os tempos são somados nestas
+  variáveis, e divididos pelo numero de iterações antes da impressão no arquivo.
+  
+OS MÉTODOS
+
+- Tanto o método de Gauss-Siedel quanto o de Successive Over Relaxation foram
+  implementados. Como a diferença entre os dois métodos está no valor central do
+  stencil, foram colocados apenas dois ifs para diferenciá-los (um dentro do laço
+  de iterações e um fora), já que os outros calculos são os mesmos. O w do SOR
+  é sempre calculado, independente do método escolhido, pois seu custo é pequeno.
+  
+- O cálculo dos pontos foi dividido da seguinte forma:
+        -> Cálculo dos valores de b
+        -> Cálculo dos multiplicadore mx e my, que são os valores do stencil para
+           a variação de x e a variáção de y, respectivamente
+        -> Cálculo do multiplicador da equação, que é o valor central do stencil.
+           No código possui o nome de ptConst, pois é constante e apenas multiplica
+           os valores restantes.
+        -> Laço de repetição da iteração, que multiplica e soma os valores do
+           stencil com os valores dos pontos. Como usamos apenas um vetor para 
+           guardar os valores dos pontos, todos os pontos em que i<j já tiveram
+           seus valore computados na iteração atual, e para os valores i>j, usamos
+           os valores da iteração anterior (o que calculamos é o valor da diagonal).
+  Deste modo, temos que:
+        b = f(x,y) = 4*pi²*sin(2pix)*sinh(2piy)
+  
+        mx = 1/(hx²)
+        my = 1/(hy²)
+        
+        (primeiro if que diferencia os métodos)
+        multEquacao = 1/(2/hx² + 2/hy² + k²) quando m=gs
+        multEquacao = w/(2/hx² + 2/hy² + k²) quando m=sor
+        
+        lacoX = mx*(u[x+1, y] + u[x-1, y])
+        lacoY = my*(u[x, y+1] + u[x, y-1])
+        
+        (segundo if que diferencia os métodos)
+        u[x,y] = multEquacao*(b[x,y] + lacoX + lacoY)                 quando m = gs
+        u[x,y] = (1-w)*u[x,y] + multEquacao*(b[x,y] + lacoX + lacoY)  quando m = sor
+        
+CÁLCULO DOS RESÍDUOS
+
+- Os resíduos são calculados com base em b - Ax.
+
+- Foi utilizado um acumulador, pois o que queremos é a norma do resíduo. Então 
+  há um laço que percorre as linhas efetuando a seguinte operação:
+  acumulador += b[i] - (mx*resul[i-1] + ptConst*resul[i] + my*resul[i+1])
+  Sendo mx, my e ptConst definidos no ítem anterior como os valores do stencil.
+  
+- A primeira e a última linha são tratadas separadamente, pois possuem apenas
+  dois valores, e não três (de acordo com a definição de uma matriz tridigonal).
+  
+- As bordas inferiores não entram na equação, pois são equações nulas. 
+
+****************************************************************
+        Problemas Encontrados
+****************************************************************
+
+- A norma de resíduo possui uma valor bastante alto, durante a conferência dos
+  resultados a função sin() apareceu como a parte que possui o maior erro numérico
+  encontrado, que vai se acumulando a cada iteração. Outros pontos possuem também
+  erros numéricos, mas em grau muito menor do que a da função sin, que mostrou
+  diferenças nas duas primeiras casas decimais em alguns testes.
+  As espressões foram divididas em várias variáveis temporárias para esta análise.
+
+- A biblioteca math.h não possui mais uma definição para pi, portanto foi necessário
+  declarar este valor como constante em pdeSolver.h. Foi declarado o valor antigo
+  presente na bibloteca math.h
+  
+- O problema das iterações foi resolvido utilizando-se variáveis inteiras, como
+  descrito anteriormente.
+  
+****************************************************************
+        Bugs conhecidos
+****************************************************************
+
+- Nenhum bug conhecido

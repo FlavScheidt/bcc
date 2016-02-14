@@ -1,0 +1,76 @@
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_1.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_2.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_3.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_4.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_5.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_6.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_7.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_8.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_9.dat
+./pdeSolver -nx 500 -ny 500 -i 10 -m gs -o s_500_10.dat
+
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_1.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_2.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_3.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_4.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_5.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_6.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_7.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_8.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_9.dat
+./pdeSolver -nx 512 -ny 512 -i 10 -m gs -o s_512_10.dat
+
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_1.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_2.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_3.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_4.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_5.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_6.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_7.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_8.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_9.dat
+./pdeSolver -nx 1022 -ny 1022 -i 10 -m gs -o s_1022_10.dat
+
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_1.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_2.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_3.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_4.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_5.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_6.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_7.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_8.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_9.dat
+./pdeSolver -nx 1024 -ny 1024 -i 10 -m gs -o s_1024_10.dat
+
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_1.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_2.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_3.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_4.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_5.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_6.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_7.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_8.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_9.dat
+./pdeSolver -nx 1026 -ny 1026 -i 10 -m gs -o s_1026_10.dat
+
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_1.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_2.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_3.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_4.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_5.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_6.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_7.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_8.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_9.dat
+./pdeSolver -nx 2046 -ny 2046 -i 10 -m gs -o s_2046_10.dat
+
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_1.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_2.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_3.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_4.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_5.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_6.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_7.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_8.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_9.dat
+./pdeSolver -nx 2048 -ny 2048 -i 10 -m gs -o s_2048_10.dat

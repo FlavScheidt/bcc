@@ -1,0 +1,47 @@
+CI067 - Oficina de Computação
+Prof. Luciano Silva
+
+Trabalho 2
+
+O objetivo do trabalho 2 é implementar uma versão do jogo "Mastermind". Ele é conhecido também pelo nome "Senha" no Brasil, como jogo de tabuleiro cujo objetivo é descobrir uma senha a partir de dicas. Uma versão online do jogo pode ser encontrada em "http://www.web-games-online.com/mastermind/index.php".
+
+As especificações para o jogo são:
+
+PRIMEIRA PARTE
+--------------
+
+1) O jogador deve encontrar uma senha de M caracteres diferentes (4 >= M >= 26), tendo N caracteres disponíveis (M <= N <= 26), em um máximo de K tentativas (10 >= K >= 20).
+
+2) Para um determinado valor de N, os N primeiros caracteres maiúsculos do alfabeto formam o conjunto de caracteres disponíveis. Ex: Se N=4, os caracteres permitidos são: 'A', 'B', 'C' e 'D'.
+
+3) Estes três parâmetros são definidos como entrada para o programa "mastermind.c". Eles devem ser passados na linha de comando de execução.
+
+4) Cada tentativa deve conter M caracteres válidos (todos devem estar contidos no conjunto de caracteres disponíveis), mas pode conter caracteres repetidos. Assuma que o usuário sempre fornece uma tentativa com M caracteres, mas os mesmos não são necessariamente válidos.
+
+5) Caso a tentativa seja válida, o programa de calcular dois valores: o primeiro valor P deve dizer a quantidade de caracteres que existem na senha, mas estão no lugar errado na tentativa, e o segundo valor Q deve receber a quantidade de caracteres que existem na senha e estão no lugar certo na tentativa. Caso um caracter que exista na senha apareça múltiplas vezes na tentativa, ele deve ser considerado apenas uma vez. Caso um caracter apareça no lugar correto e em lugares incorretos ao mesmo tempo, deve ser considerado apenas como caracter existente na senha e no lugar correto. 
+
+Ex1: Senha "ABCD" e tentativa "ADEF" resulta em P=1 (o caracter 'D' aparece na senha, mas está no lugar errado na tentativa) e Q=1 (o caracter 'A' aparece na senha e está no lugar correto). 
+
+Ex2: Senha "ABCD" e tentativa "AAAA" resulta em P=0 e Q=1 (o caracter 'A' existe na senha aparece na senha e está no lugar certo e em lugares errados ao mesmo tempo, logo, deve ser considerado apenas como presente no lugar certo). 
+
+Ex3: Senha "ABCD" e tentativa "DDAA" resulta em P=2 e Q=0 (os caracteres 'A' e 'D' estão contidos na senha, mas aparecem em lugares incorretos, e apesar de cada caracter aparecer em mais de um lugar incorreto, eles são considerados apenas uma vez).
+
+6) O arquivo "mastermind.c" possui o esqueleto básico do programa que deve ser utilizado como ponto de partida. A função "verifica_tentativa" deve ser implementada para que o jogo funcione corretamente de acordo com as regras anteriores. Lembre-se de testar seu programa para diferentes valores de K, M e N.
+
+SEGUNDA PARTE
+-------------
+
+Assim que a primeira parte for completada, a segunda parte do trabalho é gerar uma função que tente resolver o jogo automaticamente. Para isto, a função "gera_tentativa" no arquivo mastermind2.c deve ser implementada. A função "verifica_tentativa" do arquivo mastermind2.c deve ser a mesma implementada no arquivo mastermind.c.
+
+1) A função "gera_tentativa" recebe quatro parâmetros:
+- "int k": indica a quantidade de tentativas já realizadas
+- "int P": indica o valor de P retornado pela última tentativa analisada pela função "verifica_tentativa"
+- "int Q": indica o valor de Q retornado pela última tentativa analisada pela função "verifica_tentativa"
+- "char *tentativa": deve receber a próxima tentativa
+
+Observações:
+--------------------------------------------
+1) Nenhuma variável global além das que já existem pode ser criada. Se alguma das funções a serem implementadas precisarem de memória permanente, variáveis do tipo static devem ser utilizadas (ver exemplo na função "verifica_tentativa").
+2) Nenhuma alteração na função "main" é permitida, exceto a inclusão do teste dos valores de K, M e N.
+3) Programas que desrespeitem essas duas observações não serão considerados na avaliação.
+

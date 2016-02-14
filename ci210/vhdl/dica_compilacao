@@ -1,0 +1,51 @@
+%% Dicas preparadas por Derik.
+ 
+Boa noite,
+ 
+Vendo a dificuldade inerente ao processo de compilação e execução do
+test
+bench do picoProcessor, estou enviando um passo-a-passo para fazê-lo:
+ 
+Primeiramente, logue em alguma servidora no dinf:
+ 
+$> ssh -X ssh
+ 
+Comente a linha 53 do arquivo
+pP_defs-body.vhd
+ 
+Copie as linhas abaixo e salve no arquivo "build.sh"
+ 
+rm -rf ./*.o
+ghdl -a --ieee=synopsys -fexplicit pP_defs.vhd
+ghdl -a --ieee=synopsys -fexplicit pP_defs-body.vhd
+ghdl -a --ieee=synopsys -fexplicit pP.vhd
+ghdl -a --ieee=synopsys -fexplicit pP-behav.vhd
+ghdl -a --ieee=synopsys -fexplicit pP-
+unpipelined_single_cycle_rtl.vhd
+ghdl -a --ieee=synopsys -fexplicit test.vhd
+ghdl -a --ieee=synopsys -fexplicit test-bench.vhd
+ghdl -a --ieee=synopsys -fexplicit test_bench_behav-config.vhd
+ghdl -a --ieee=synopsys -fexplicit
+ test_bench_unpipelined_single_cycle_rtl.vhd
+ghdl -e --ieee=synopsys -fexplicit
+test_bench_unpipelined_single_cycle_rtl
+ 
+Observe o arquivo "test_bench_unpipelined_single_cycle_rtl.vhd".
+ 
+Perceba que ele chama o arquivo "test.ppe" e, que neste arquivo, há
+algumas
+instruções. Adicione chamadas as instruções que queira (como, por
+exemplo,
+as que fizeram, respeitando o formato do arquivo!)
+ 
+Em um terminal, execute:
+$> sh build.sh
+$> ./test_bench_unpipelined_single_cycle_rtl --stop-time=1000ns
+--vcd=saida.vcd
+$> gtkwave saida.vcd
+ 
+Resta analisar a saída do GTKWave, e ver se corresponde a
+especificação.
+Note também que, neste exemplo, estamos alterando o arquivo
+ 
+pP-unpipelined_single_cycle_rtl.vhd

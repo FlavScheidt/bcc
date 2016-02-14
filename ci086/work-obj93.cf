@@ -1,0 +1,15 @@
+v 3
+file . "add4_tst.vhd" "20101021162001.000" "20101021142454.661":
+  entity test_add4 at 11( 350) + 0 on 27;
+  architecture test of test_add4 at 22( 585) + 0 on 28;
+file . "adder_tb.vhdl" "20101021155504.000" "20101021140220.411":
+  entity adder_tb at 2( 35) + 5 on 13;
+  architecture behav of adder_tb at 5( 84) + 5 on 14;
+file . "adder.vhdl" "20101021155444.000" "20101021140217.646":
+  entity adder at 1( 0) + 5 on 11;
+  architecture rtl of adder at 7( 228) + 5 on 12;
+file . "add4.vhd" "20101021161939.000" "20101021142413.771":
+  entity bit_adder at 5( 106) + 0 on 23;
+  architecture bhv of bit_adder at 18( 540) + 0 on 24;
+  entity add4 at 40( 1144) + 0 on 25;
+  architecture structure of add4 at 58( 1794) + 0 on 26;

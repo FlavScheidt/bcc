@@ -1,0 +1,90 @@
+%%% NÃO altere nada aqui
+\documentclass[11pt,a4paper]{article}
+\usepackage[body={155mm,250mm},lmargin=30mm,top=30mm,headsep=12mm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[portuges]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{times}
+\usepackage{url}\urlstyle{tt}
+
+\setlength{\parindent}{2em}\setlength{\parskip}{0\baselineskip}
+\renewcommand{\baselinestretch}{1.75}
+
+% salve uma cópia deste arquivo com outro nome (x.tex)
+% para gerar o PDF diga   pdflatex x.tex 
+
+
+
+%%%% edite os próximos três campos
+
+\newcommand{\titulo}[1]{\mbox{ Resumo 1 - Localidade }}
+\newcommand{\autoria}[1]{\mbox{ Flaviene Scheidt de Cristo }}
+\newcommand{\disciplina}[1]{ BCC-CI312 }
+
+
+
+%%% NÃO altere nada aqui
+\pagestyle{myheadings}%
+\markboth{}{UFPR\hfill\disciplina{}\hfill}
+\sloppy\raggedbottom
+
+
+\begin{document}
+
+%%% NÃO altere nada aqui
+\begin{center}
+\begin{Large}\textbf{\titulo}\end{Large}\\[1ex]
+\begin{large}\textbf{\autoria}\end{large}\\[1ex]
+\today
+\end{center}
+
+%%% o resumo não pode ultrapassar uma página física.
+%%% remova o texto abaixo e  insira seu texto a partir daqui
+
+A localidade é um princípio que tem auxiliado muitas áreas da computação na resolução de problemas que vão desde o desenvolvimento eficaz de memória virtual e caches a sistemas de negócios baseados em Web. Isso acontece porque todos os processos computacionais apresentam fases em que certos objetos são mais referenciados do que outros, como é o caso dos \textit{ loops } e dos arranjos dos dados como vetores e matrizes.
+
+Modelos de localidade podem ser estáticos - em que há apenas uma distribuição de probabilidades - ou dinâmicos - quando as probabilidades mudam ao longo do tempo de execução. Tais modelos podem se referir a localidade espacial ou temporal, e descrevem o comportamento do processo sem a necessidade de  que este seja de fato computado.
+
+Os princípios de localidade começaram a ser fortemente explorados em 1959, com o advento das primeiras pesquisas relacionadas a memória virtual, por conta dos algoritmos de substituição. Era necessário o desenvolvimento de ferramentas mais robustas que evitassem o \textit{ trashing }, pois este problema fazia com que a memória virtual trouxesse perda de desempenho em muitos casos, sendo imprevisível quando seu uso aumentaria ou diminuiria o desempenho do sistema como um todo. Em 1966 Les Belady propôs a solução desse problema utilizando o princípio de \textit{ Least Recently Used }, que nada mais é um método baseado em localidade temporal. Quanto mais distante o tempo do último acesso de um elemento, menor a chance deste ser novamente utilizado.
+
+Desde então os princípios de localidade foram sendo adotados cada vez mais, tornando sua tecnologia cada vez mais evoluída, culminando em quatro ideias chave: observador, vizinhança, inferência e ações ideal (do observador). A vizinhança se refere a grupos de obejtos que serão utilizados pelo observador, enquanto a inferência trata de como os objetos serão utilizados, e ação ideal é aquela em que o observador completa sua tarefa no menor tempo necessário por conta do arranjo dos objetos necessários para sua conclusão.
+
+Atualmente os princípios de localidade podem ser resumidos como a otimização de sistemas através do rearranjo da vizinhança do observador (usuário ou programa), tal rearranjo depende da sequência de ações do observador e da declaração de estruturas estáticas.
+
+%Os arquivos dos resumos devems er enviados com nome
+%\url{username-autor.pdf} para facilitar a minha vida na hora de salvar e
+%imprimir os resumos.
+
+%Veja \url{http://www.inf.ufpr.br/info/techrep/RT_DINF004_2004.pdf}
+
+%As respostas às perguntas abaixo podem ajudar na preparação do resumo.
+%Nem todas as perguntas são relevantes a todos os artigos.
+%\begin{enumerate}  %% esta é a maneira correta de formatar uma lista.
+%% Note que os linhas tem espaço 1,75; com espaço 1,0 a aparência
+%% da lista numerada fica MUITO melhor.
+
+%\item Qual o problema tratado no artigo?
+
+%\item Que soluções são propostas?
+
+%\item Quais evidências o autor oferece quanto à qualidade das soluções?
+
+%\end{enumerate}
+
+%O resumo deve ser escrito em \textbf{uma} página A4
+%e \textsl{deve} conter:\\ %% esta é a maneira porca mas eficaz...
+%(i)~~~a descrição do problema;\\
+%(ii)~~a descrição de sua solução;\\
+%(iii)~avaliação de mérito da solução; e\\
+%(iv)~~uma breve (duas linhas) avaliação do texto quanto a organização,
+ %     clareza, completude.
+
+      %% o caractere ~ (til) é um espaço em branco que "gruda" as palavras que
+      %% separa:   abc~xyz não separa abc de xyz numa quebra de linha.
+
+  %    Palavras em Inglês devem ser grafadas em \textit{itálico}.
+
+
+
+      \end{document}
+

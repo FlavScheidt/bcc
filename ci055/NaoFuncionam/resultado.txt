@@ -1,0 +1,14 @@
+ 15:47:30 up 51 min, 12 users,  load average: 0,95, 0,76, 0,64
+USER     TTY      FROM              LOGIN@   IDLE   JCPU   PCPU WHAT
+pcbm09            10.254.1.97:1    15:47   51:06  12:35   0.29s x-session-manag
+erlf07   pts/1    guinness.c3sl.uf 14:59   47:40   0.06s  0.06s -bash
+iv07     pts/2    10.254.1.36:4.0  15:08   15:53  31.15s  0.21s bash
+agp10    pts/3    10.254.2.14:1.0  15:46   26.00s  0.27s  0.27s bash
+eduardos pts/5    nat39-194.siemen 15:10   37:13   0.21s  0.21s -bash
+rvp10    pts/6    10.254.2.17:2.0  15:35   53.00s  0.39s  0.39s bash
+wd10     pts/9    10.254.2.14:3.0  15:42   23.00s  0.23s  0.23s bash
+gcp10    pts/7    10.254.2.17:3.0  15:35    1.00s 12.00s  0.31s bash
+fsc10    pts/8    10.254.2.17:1.0  15:37    9:52  13.00s  0.23s bash
+fsc10    pts/10   10.254.2.17:1.0  15:40    0.00s  0.36s  0.01s w
+agp10    pts/11   10.254.2.14:1.0  15:42    4:27  38.15s  0.29s bash
+pcbm09   pts/12   10.254.1.97:1.0  15:47    7.00s  0.30s  0.30s bash

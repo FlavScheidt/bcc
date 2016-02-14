@@ -1,0 +1,76 @@
+-------------------------------------------------------------
+-------------------------------------------------------------
+CPU type:	Intel Core Westmere processor 
+CPU clock:	2.80 GHz 
+-------------------------------------------------------------
+Measuring group MEM
+
+=====================
+Region: Residuo 
+=====================
++-------------------+------------+
+|    Region Info    |   core 0   |
++-------------------+------------+
+| RDTSC Runtime [s] | 0.00284731 |
+|    call count     |     10     |
++-------------------+------------+
++--------------------------------+-------------+
+|             Event              |   core 0    |
++--------------------------------+-------------+
+|       INSTR_RETIRED_ANY        | 1.05851e+07 |
+|     CPU_CLK_UNHALTED_CORE      | 6.96936e+06 |
+|      CPU_CLK_UNHALTED_REF      | 7.93143e+06 |
+|    UNC_QMC_NORMAL_READS_ANY    |     176     |
+|    UNC_QMC_WRITES_FULL_ANY     |     51      |
+| UNC_QHL_REQUESTS_REMOTE_READS  |     66      |
+|  UNC_QHL_REQUESTS_LOCAL_READS  |     63      |
+| UNC_QHL_REQUESTS_REMOTE_WRITES |      0      |
++--------------------------------+-------------+
++-----------------------------+------------+
+|           Metric            |   core 0   |
++-----------------------------+------------+
+|     Runtime (RDTSC) [s]     | 0.00284731 |
+|    Runtime unhalted [s]     | 0.00248899 |
+|         Clock [MHz]         |  2460.44   |
+|             CPI             |  0.658412  |
+| Memory bandwidth [MBytes/s] |  5.10236   |
+| Memory data volume [GBytes] | 1.4528e-05 |
+|  Remote Read BW [MBytes/s]  |  1.48351   |
+| Remote Write BW [MBytes/s]  |     0      |
+|    Remote BW [MBytes/s]     |  1.48351   |
++-----------------------------+------------+
+
+=====================
+Region: GS 
+=====================
++-------------------+----------+
+|    Region Info    |  core 0  |
++-------------------+----------+
+| RDTSC Runtime [s] | 0.176365 |
+|    call count     |    1     |
++-------------------+----------+
++--------------------------------+-------------+
+|             Event              |   core 0    |
++--------------------------------+-------------+
+|       INSTR_RETIRED_ANY        | 3.53112e+08 |
+|     CPU_CLK_UNHALTED_CORE      | 2.89672e+08 |
+|      CPU_CLK_UNHALTED_REF      | 4.50606e+08 |
+|    UNC_QMC_NORMAL_READS_ANY    |    13443    |
+|    UNC_QMC_WRITES_FULL_ANY     |    30506    |
+| UNC_QHL_REQUESTS_REMOTE_READS  |    1442     |
+|  UNC_QHL_REQUESTS_LOCAL_READS  |    51981    |
+| UNC_QHL_REQUESTS_REMOTE_WRITES |     10      |
++--------------------------------+-------------+
++-----------------------------+------------+
+|           Metric            |   core 0   |
++-----------------------------+------------+
+|     Runtime (RDTSC) [s]     |  0.176365  |
+|    Runtime unhalted [s]     |  0.103451  |
+|         Clock [MHz]         |  1800.03   |
+|             CPI             |  0.820342  |
+| Memory bandwidth [MBytes/s] |  15.9483   |
+| Memory data volume [GBytes] | 0.00281274 |
+|  Remote Read BW [MBytes/s]  |  0.523277  |
+| Remote Write BW [MBytes/s]  | 0.00362883 |
+|    Remote BW [MBytes/s]     |  0.526906  |
++-----------------------------+------------+

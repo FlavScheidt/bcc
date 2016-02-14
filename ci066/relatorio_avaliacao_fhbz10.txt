@@ -1,0 +1,47 @@
+# Avaliacao de trabalhos - Trabalho 2 - gerador e resolvedor de campo minado
+#
+# Preencha a ficha de avaliacao abaixo
+#
+# Dados seus (avaliador)
+#
+Flaviene Scheidt de Cristo
+FSC10
+#
+# Dados do programador (trabalho que você está avaliando)
+#
+Flávio H. de Bittencourt Zavam
+FHBZ10
+#
+#
+# Entregou os dois programas (gerador e resolver)? Sim/Não, qual?
+Sim
+# Os programas recebem parâmetros e estes são verificados (consistência)?
+# Comente/explique
+Os programas não recebem o nome do arquivo a ser usado como parâmetro, mas foi especificado no arquivo readme.txt que a saída e a entrada devem ser redirecionadas (exemplo: python generator > campo.txt). O gerador recebe o tamanho do campo e o número de bombas. Tais dados são verificados e, no caso de o campo ou o número de  bomba ser maior ou menor do que o permitido, retorna uma mensagem de erros.
+# Os programas estão bem comentados e implementados? (explique/justifique)
+Levando-se em consideração que os programas fora escritos em python, e que um dos objetivos da linguagem é a legibilidade, o código é fácil de ser entendindo, mesmo com poucos comentários, e estes sendo em inglês. 
+# Os programas fazem o que foi solicitado na especificação? (explique)
+Sim, ambos fazem o que foi solicitado. O gerador funciona do modo que deve, inclusive sem colocar minas no meio do campo. O resolvedor retorna como saída "I won" ou "I lose", mas não imprime o campo, não sendo possível visualizar as jogadas.
+# Explique brevemente o funcionamento dos programas com suas principais
+# rotinas
+O programa vai analizando os casos quanto a complexidade. Primeiro ele assinala os casos em que há certeza de bomba (jogada simples), depois revela mais posições de acordo com as marcações de bomba já feitas. E então analisa casos mais complexos, se há dúvida, chuta, mas calculando a probabilidade de haver ou não uma bomba no local.
+# O programa resolvedor possui regras claras? Como funcionam? (explique)
+Sim, as regras vão de acordo com a complexidade da jogada e em chutes baseados em probabilidades.
+# teste os programas com diferentes parametros (campos) e verifique o
+# funcionamento. Comente/explique os testes
+Primeiramente foram feitos testes com configurações de campo diferentes das permitidas, para verificar o tratamento dessas entradas. Testes satisfatórios. Em seguida, campo pequenos com grande quantidade de bombas(tamanho 10x10 com 80 bombas) , caso no qual o algoritmo falha. Então foi feito um teste com um campo de tamanho médio com metade das casas contendo bombas, caso em que o programa também perde. E um campo grande com um quarto dos campos contendo bombas (40x40 com 400 bombas). Nesse caso, o algoritmo também perde. Com testes mais amigáveis, com menor número de bombas, o algoritmo ganha. Mas, como especificado no arquivo readme.txt, o programa resolve, no máximo, 28,8% dos casos.
+# Existem casos de configuração de campo minado que o programa resolvedor
+# não resolve? Explique e comente os exemplo
+Com os testes executados, pode-se verificar que o programa não é efetivo para casos em que o número de bombas é superior a um sexto do campo. Campos que o programa não resolveu enviados em anexo.
+# Pontos Positivos (explique/justifique)
+O código apresenta-se bastante legível e claro, a saída tem a vantagem de contar o número de jogadas e de chutes. Os critérios para marcação de bombas, abertura de casas e chutes são bastante efetivos em testes amigáveis.
+# Pontos Negativos (explique/justifique)
+O programa não imprimi o campo, o que não é um grande problema, mas seria mais agradável se as jogadas pudessem ser visualizadas. Outro ponto negativo é o fato de o algoritmo não ser muito efetivo em testes mais "intensos" (campo pequeno em relação ao número de bombas). 
+# Comparando este trabalho com o seu o que você pode comentar? Vantagens e
+# desvatagens (limitações/novidades/etc). Casos que o seu resolve e o dele(a)
+# não resolve ou vice-versa?!
+Meu algoritmo entra em um loop infinito e não abre nem ao menos o primeiro campo, este, em comparação, funciona perfeitamente. Além do que, meu programa não possui critérios para chutar e faz apenas o que neste programa o desenvolvedor chama de "jogada mais simples".
+# Qual a sua avaliação final? Sugestões/comentários gerais.
+O programa não se mostra efetivo na maioria dos casos, mas ainda assim, é um algoritmo muito mais efetivo do que a maioria, tem um bom critério de chute e analiza os casos de acordo com a complexidade destes. O fato de mostrar o número de rodadas e de chutes é algo a mais, ainda que não seja possível visualizar tais jogadas. A legibilidade do código é excelente, até porque, foi escrito em Python.
+# Nota Geral de 0 a 100
+90

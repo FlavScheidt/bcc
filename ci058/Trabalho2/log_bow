@@ -1,0 +1,48 @@
+<1434041541.949357> Enviando nome para entrada 
+<1434041541.953511> Aguardando reset
+<1434041566.953533> Reenviando nome
+<1434041566.970831> Reset recebido!
+<1434041566.970842> Retransmitindo reset
+<1434041566.980643> Aguardando Cartas
+<1434041566.980669> Mensagem recebida: macalan :bowmore :2:0000:000:5O7C3O 
+<1434041566.981441> Minha mao: 5O 7C 3O
+<1434041566.982272> Mensagem recebida: macalan :priorat :2:0000:000:AEQO5O 
+<1434041566.982284> Retransmitindo macalan :priorat :2:0000:000:AEQO5O 
+<1434041566.983051> Mensagem recebida: macalan :talisker:2:0000:000:6C6O2E 
+<1434041566.983063> Retransmitindo macalan :talisker:2:0000:000:6C6O2E 
+<1434041566.983868> Mensagem recebida: macalan :all     :3:0000:000:AP 
+<1434041566.984758> Manilha recebida: AP
+<1434041566.985459> Cartas na tela 
+<1434041566.985776> Mensagem recebida: macalan :all     :3:0000:000:AP 
+<1434041566.985797> Mensagem recebida: macalan :bowmore :1:0000:000:  
+<1434041566.985801> Bastão recebido
+<1434041581.157263> Entrada do jogador: 0
+<1434041581.157287> Jogador escolheu uma carta
+<1434041581.157291> Carta Aceita
+<1434041581.158341> bowmore :all     :4:0000:000:CT5O
+<1434041581.158355> Enviando bastão
+<1434041581.158359> bowmore :priorat :1:0000:000: 
+<1434041581.159238> Aguarda Mensagem...
+<1434041581.165228> Mensagem recebida: bowmore :all     :4:1011:000:CT5O 
+<1434041581.165233> Mensagem deve ser retirada do anel
+<1434041588.004186> Mensagem recebida: priorat :all     :4:1001:000:CT5O 
+<1434041588.004203> Tipo de Jogada: CT
+<1434041588.004207> Carta recebida de priorat
+<1434041588.005090> Aguarda Mensagem...
+<1434041594.033581> Mensagem recebida: talisker:all     :4:1000:000:CT2E 
+<1434041594.033596> Tipo de Jogada: CT
+<1434041594.033599> Carta recebida de talisker
+<1434041594.034598> Aguarda Mensagem...
+<1434041599.965205> Mensagem recebida: macalan :all     :4:0000:000:CTJC 
+<1434041599.965220> Tipo de Jogada: CT
+<1434041599.965224> Carta recebida de macalan
+<1434041599.966225> Aguarda Mensagem...
+<1434041599.966350> Mensagem recebida: macalan :bowmore :1:0000:000:  
+<1434041599.966354> Bastão recebido
+<1434041599.966620> Entrada do jogador: 
+
+<1434041663.005463> Entrada do jogador: 3
+<1434041663.007675> Enviando bastão
+<1434041663.007690> bowmore :priorat :1:0000:000: 
+<1434041663.015410> Mensagem recebida: bowmore :all     :4:1011:000:TR 
+<1434041663.015422> Mensagem deve ser retirada do anel

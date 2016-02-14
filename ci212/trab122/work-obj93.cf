@@ -1,0 +1,37 @@
+v 3
+file . "filtro.vhd" "20130304220420.000" "20130304190426.331":
+  entity extensor at 8( 400) + 0 on 4449;
+  architecture extensor of extensor at 16( 543) + 0 on 4450;
+  entity subtracao16 at 25( 851) + 0 on 4451;
+  architecture subtracao16 of subtracao16 at 33( 1009) + 0 on 4452;
+  entity filtro at 53( 1691) + 0 on 4453;
+  architecture estrutural of filtro at 66( 2110) + 0 on 4454;
+file . "packageWires.vhd" "20130221195900.000" "20130304190425.530":
+  package p_wires at 11( 483) + 0 on 4425 body;
+  package body p_wires at 42( 1720) + 0 on 4426;
+file . "aux.vhd" "20130225181959.000" "20130304190425.664":
+  architecture funcional of addbit at 23( 938) + 0 on 4428;
+  entity and2 at 35( 1384) + 0 on 4429;
+  architecture and2 of and2 at 43( 1577) + 0 on 4430;
+  entity or3 at 52( 1892) + 0 on 4431;
+  architecture or3 of or3 at 60( 2089) + 0 on 4432;
+  entity xor3 at 70( 2407) + 0 on 4433;
+  architecture xor3 of xor3 at 78( 2607) + 0 on 4434;
+  entity addbit at 88( 2952) + 0 on 4435;
+  architecture estrutural of addbit at 96( 3174) + 0 on 4436;
+  entity adianta4 at 126( 4271) + 0 on 4437;
+  architecture adianta4 of adianta4 at 136( 4519) + 0 on 4438;
+  entity adderadianta4 at 166( 5640) + 0 on 4439;
+  architecture adderadianta4 of adderadianta4 at 177( 5871) + 0 on 4440;
+  entity addercadeia at 242( 8245) + 0 on 4441;
+  architecture addercadeia of addercadeia at 253( 8472) + 0 on 4442;
+  entity count12 at 292( 10186) + 0 on 4443;
+  architecture funcional of count12 at 302( 10461) + 0 on 4444;
+  entity registrador12 at 326( 11126) + 0 on 4445;
+  architecture funcional of registrador12 at 336( 11401) + 0 on 4446;
+  entity entrada at 360( 12121) + 0 on 4447;
+  architecture behavioral of entrada at 374( 12461) + 0 on 4448;
+file . "tb_filtro.vhd" "20130304210933.000" "20130304190426.629":
+  entity tb_filtro at 8( 413) + 0 on 4455;
+  architecture tb of tb_filtro at 15( 541) + 0 on 4456;
+  configuration cfg_tb at 95( 2725) + 0 on 4457;

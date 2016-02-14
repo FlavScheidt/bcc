@@ -1,0 +1,232 @@
+
+%{
+#include <stdio.h>
+#include <ctype.h>
+#include <stdlib.h>
+#include <string.h>
+#include "compilador.h"
+
+
+int num_vars; 		//Número de variáveis declaradas (para alocação AMEN)
+int num_vars2;		//Auxiliar
+int nLexico; 		//nível léxico atual
+int nDesloc; 		//deslocamento da variável
+int nVarsAloc; 		//Número de vars para alocação
+int tipoVar;		//Tipo da variável (aqui apenas int)
+
+int buscaSimbolo;	//Auxiliar para busca de símbolos na TS
+%}
+
+%token PROGRAM ABRE_PARENTESES FECHA_PARENTESES 
+%token VIRGULA PONTO_E_VIRGULA DOIS_PONTOS PONTO
+%token T_BEGIN T_END VAR IDENT ATRIBUICAO
+%token INTEGER BOOLEAN
+%token LABEL NUMERO
+
+%%
+
+programa    :{
+		
+		num_vars 	= 0;
+		nLexico		= 0;
+		nDesloc		= 0;
+
+             	geraCodigo (NULL, "INPP");
+             }	
+             PROGRAM IDENT 
+             ABRE_PARENTESES lista_idents FECHA_PARENTESES PONTO_E_VIRGULA
+             bloco PONTO 
+	     {
+
+		// Percorre TS e conta o número de vars para desalocar
+		int nVarsDesaloc = 0;
+		
+		//Nao da pra usar for =(
+		int i = topoTS-1;
+		while (i >= 0)
+		{
+			if(TS[i].tipo == 0)
+			{
+				nVarsDesaloc++;
+			}
+			i--;
+		}
+		
+		//Transforma nVarsDesloc em char
+		geraCodigo1Param(NULL, "DMEN", nVarsDesaloc);
+             	geraCodigo (NULL, "PARA"); 
+             }
+;
+
+bloco       :	parte_declara_rot
+
+		parte_declara_vars
+		{
+		}
+
+		comando_composto
+		;
+
+parte_declara_rot: LABEL lista_rots PONTO_E_VIRGULA
+;
+
+lista_rots: lista_rots
+	VIRGULA
+	NUMERO
+	{
+		InsereTS(token, 1, nLexico, nDesloc, NULL, GeraNovoRotuloDeclaracao());
+	}
+	| NUMERO
+	{
+		InsereTS(token, 1, nLexico, nDesloc, NULL, GeraNovoRotuloDeclaracao());
+	}
+;
+
+parte_declara_vars:  var 
+;
+
+
+var         : { } VAR declara_vars
+		{
+			geraCodigo1Param(NULL, "AMEM", num_vars);
+			num_vars = 0;
+		}
+            |
+;
+
+declara_vars: declara_vars declara_var 
+            | declara_var 
+;
+
+declara_var : {  num_vars2 = 0; } 
+              lista_id_var DOIS_PONTOS 
+              tipo
+	      {
+			//Atualiza o tipo de variável na tabela
+			int i 		= topoTS;
+			int cont 	= 0;
+
+			while (cont <= num_vars2)
+			{
+				TS[i].info.infoVar.tipoVar = tipoVar;
+				cont++;
+				i--;
+			}
+              }
+              PONTO_E_VIRGULA
+;
+
+tipo        : INTEGER { tipoVar = 0; }
+	| BOOLEAN { tipoVar = 1;}
+;
+
+lista_id_var: lista_id_var VIRGULA IDENT 
+              	{
+		      	InsereTS(token, 0, nLexico, nDesloc, 0, -1);
+		 	nDesloc++;
+		      	num_vars++;
+			nVarsAloc++;
+		}
+            | IDENT 
+	    	{ 
+			InsereTS(token, 0, nLexico, nDesloc, 0, -1);
+			nDesloc++;
+			num_vars++;
+			nVarsAloc++;
+		}
+;
+
+lista_idents: lista_idents VIRGULA IDENT  
+            | IDENT
+;
+
+comando_composto: T_BEGIN comandos T_END
+;
+
+comandos: comando PONTO_E_VIRGULA comandos
+	| comando;
+
+comando: comando_sem_rotulo
+	| NUMERO
+	{
+		buscaSimbolo = BuscaTS(token, 1);
+		geraCodigo(FormataRotuloDeclaracao(TS[buscaSimbolo].info.infoLabel.nRotulo),
+			"NADA");
+	}
+	DOIS_PONTOS comando_sem_rotulo
+;
+
+comando_sem_rotulo: atribuicao
+		| comando_composto
+;
+
+atribuicao: IDENT ATRIBUICAO
+	{
+		buscaSimbolo = BuscaTS(token, 0);
+	}
+	| atribuicao_var
+;
+
+atribuicao_var: IDENT
+	{
+		//Busca variavel do lado direito da expressao
+		int buscaSimbolo2 = BuscaTS(token, 0);
+
+		//Gera os códigos
+		geraCodigo2Params(NULL, "CRVL", TS[buscaSimbolo2].info.infoVar.nLexico,
+				TS[buscaSimbolo2].info.infoVar.nDesloc);
+		geraCodigo2Params(NULL, "ARMZ", TS[buscaSimbolo].info.infoVar.nLexico,
+				TS[buscaSimbolo].info.infoVar.nDesloc);
+	}
+	| NUMERO
+	{
+		geraCodigoParamRot(NULL, "CRCT", token);
+	}
+	| expressao
+	{
+		geraCodigo2Params(NULL, "ARMZ", TS[buscaSimbolo].info.infoVar.nLexico,
+				TS[buscaSimbolo].info.infoVar.nDesloc);
+	}
+;
+
+expressao: 
+;
+
+%%
+
+main (int argc, char** argv) {
+   FILE* fp;
+   extern FILE* yyin;
+
+   int i;
+
+   if (argc<2 || argc>2) {
+         printf("usage compilador <arq>a %d\n", argc);
+         return(-1);
+      }
+
+   fp=fopen (argv[1], "r");
+   if (fp == NULL) {
+      printf("usage compilador <arq>b\n");
+      return(-1);
+   }
+
+
+/* -------------------------------------------------------------------
+ *  Inicia a Tabela de Símbolos
+ * ------------------------------------------------------------------- */
+	topoTS = -1;
+	TS = malloc(32*sizeof(TabelaSimbolos));
+	
+/**********************************************************************
+	Inicia tabela de rótulos
+**********************************************************************/
+	topoTR = -1;
+	TR = malloc(16*sizeof(int)); // o normal é ter menos rótulo do que variável
+
+   yyin=fp;
+   yyparse();
+
+   return 0;
+}
+
